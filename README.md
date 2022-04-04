@@ -15,7 +15,7 @@ password: p-DNbUMLwkwbqK_!35@7Nuv&tfN62]4
 
 ## Collaborators:
 
-- ArtyomTrubachev(@ArtyomTrubachev)
+- Artyom Trubachev(@ArtyomTrubachev)
 
 - Vladislav Kazakov(@Deadstanly)
 
