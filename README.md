@@ -13,12 +13,10 @@ email: douglas.adams@gmail.com
 password: p-DNbUMLwkwbqK_!35@7Nuv&tfN62]4
 
 
-Collaborators:
-@ArtyomTrubachev
-ArtyomTrubachev
+## Collaborators:
 
-@Deadstanly
-Vladislav_Kazakov
+- ArtyomTrubachev(@ArtyomTrubachev)
 
-@Skymarce
-Andrew Duraev
+- Vladislav Kazakov(@Deadstanly)
+
+- Andrew Duraev(@Skymarce)
