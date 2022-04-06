@@ -1,0 +1,156 @@
+.container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.containerLogin {
+  width: 320px;
+}
+.containerLoginTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  background: #EDF2F6;
+}
+
+.loginTitleEntrance {
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  color: #070C11;
+  padding-left: 20px;
+}
+
+.svgExit:hover {
+  fill: yellow;
+}
+
+.containerLoginForm {
+  padding-left: 20px;
+}
+
+.loginFormLabelInput {
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #070C11;
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
+
+.divInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #EAEAF0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 48px;
+  width: 282px;
+}
+
+input {
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.inputNumber {
+  padding-left: 20px;
+}
+
+.svgLock {
+  padding-left: 25px;
+}
+
+.svgEye {
+  padding-right: 16px;
+}
+
+ .svgEye:hover {
+  fill: red;
+   stroke-width: 5;
+}
+
+.svgLock:hover {
+  fill: red;
+  stroke-width: 5;
+}
+
+
+.inputNumber, .inputPassword {
+  outline: none;
+  border: none;
+}
+
+.forgetPassword {
+  padding-top: 10px;
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+
+}
+
+.divRemember {
+  display: flex;
+  align-items: center;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+#remember {
+  width: 20px;
+  height: 20px;
+  padding-right: 7px;
+}
+
+.textRemember {
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #070C11;
+}
+
+.btnEnter {
+  background: #2A5275;
+  border-radius: 4px;
+  height: 48px;
+  width: 282px;
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+
+.divLinkRegistration {
+  padding-top: 20px;
+  font-family: 'Exo 2', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
