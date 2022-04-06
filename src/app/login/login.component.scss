@@ -1,14 +1,19 @@
 .container {
   box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  align-content: center;
+  justify-content: center;
+  overflow: auto;
 }
 
 .containerLogin {
-  width: 320px;
+  width: 1100px;
 }
 .containerLoginTitle {
   display: flex;
@@ -56,7 +61,7 @@
   box-sizing: border-box;
   border-radius: 5px;
   height: 48px;
-  width: 282px;
+  width: 582px;
 }
 
 input {
@@ -80,13 +85,11 @@ input {
 }
 
  .svgEye:hover {
-  fill: red;
-   stroke-width: 5;
+
 }
 
 .svgLock:hover {
-  fill: red;
-  stroke-width: 5;
+
 }
 
 
@@ -127,11 +130,16 @@ input {
   color: #070C11;
 }
 
+.divBtn {
+  display: flex;
+  justify-content: center;
+}
+
 .btnEnter {
   background: #2A5275;
   border-radius: 4px;
   height: 48px;
-  width: 282px;
+  width: 582px;
   font-family: 'Exo 2', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -153,4 +161,65 @@ input {
 
 a {
   text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+  .containerLogin {
+    width: 1100px;
+  }
+
+  .divInput {
+    width: 582px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+  .containerLogin {
+    width: 922px;
+  }
+
+  .divInput {
+    width: 582px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .containerLogin {
+    width: 698px;
+  }
+
+  .divInput {
+    width: 482px;
+  }
+}
+
+@media (max-width: 767px) {
+  .containerLogin {
+    width: 450px;
+  }
+
+  .divInput {
+    width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerLogin {
+    width: 310px;
+  }
+
+  .divInput {
+    width: 282px;
+  }
+}
+
+@media (max-width: 320px) {
+  .containerLogin {
+    width: 270px;
+  }
+
+  .divInput {
+    width: 252px;
+  }
 }
