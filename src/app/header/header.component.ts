@@ -1,15 +1,19 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
+import { Toolbar } from '../models/toolbar.interface';
+import { ToolbarService } from '../services/toolbar.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
-  isActive = false;
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('searchInput') searchInput: ElementRef;
+  isActive = false;
+  sub: Subscription;
+  accountMenu: Toolbar[] = [];
   catalogMenu = [
     {name: 'Гироскутеры', src: '../../assets/icons/catalog/hydro_scooter.svg'},
     {name: 'Электросамокаты', src: '../../assets/icons/catalog/electric_scooter.svg'},
@@ -24,13 +28,19 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     {name: 'Smart Watch', src: '../../assets/icons/catalog/smart_watch.svg'}
   ];
 
-  constructor() { }
+  constructor(private toolbarService: ToolbarService) { }
 
   ngAfterViewInit(): void {
     this.search()
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.accountMenu = this.toolbarService.accountMenu;
+   }
+
+  ngOnDestroy(): void {
+    this.sub && this.sub.unsubscribe();
+  }
 
   public toCatalogSection(event: Event) {
     event.stopPropagation()
@@ -38,17 +48,16 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   public search() {
-    fromEvent(this.searchInput.nativeElement, 'input')
+    this.sub = fromEvent(this.searchInput.nativeElement, 'keyup')
       .pipe(
         filter(Boolean),
         debounceTime(1500),
         distinctUntilChanged(),
-        tap(
-          (response) => {
-            console.log(this.searchInput.nativeElement.value);
-          }
-        )
-      ).subscribe();
+      ).subscribe({
+        next: () => {
+          console.log(this.searchInput.nativeElement.value);
+        }
+      });
   }
 
 }

@@ -16,7 +16,7 @@
             <div class="header__panel">
                 <div class="header__panel-search">
                     <input type="search" placeholder="Поиск"
-                           (input)="search()"
+                           (keyup)="search()"
                            #searchInput
                     >
                 </div>
@@ -43,23 +43,8 @@
 
         <div class="header__account-menu" *ngIf="isActive">
             <ul class="header__account-menu-items">
-                <li class="header__account-menu-item">
-                    <a href="#">Общие сведения</a>
-                </li>
-                <li class="header__account-menu-item">
-                    <a href="#">Личные данные</a>
-                </li>
-                <li class="header__account-menu-item">
-                    <a href="#">История покупок</a>
-                </li>
-                <li class="header__account-menu-item">
-                    <a href="#">Избранное</a>
-                </li>
-                <li class="header__account-menu-item">
-                    <a href="#">Сменить пароль</a>
-                </li>
-                <li class="header__account-menu-item">
-                    <a href="#">Выйти</a>
+                <li class="header__account-menu-item" *ngFor="let item of accountMenu">
+                    <a href="#">{{item.name}}</a>
                 </li>
             </ul>
         </div>
