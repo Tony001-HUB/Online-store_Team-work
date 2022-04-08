@@ -31,7 +31,7 @@ export class RegistrationComponent implements OnInit {
     this.authService.registration(this.myForm.value).subscribe(data => {
       alert('Пользователь успешно зарегистрирован!');
       this.myForm.reset();
-      this.router.navigate(['/login']);
+      /*this.router.navigate(['/login']);*/
     });
   }
 
