@@ -1,6 +1,6 @@
 .form-login__divInput {
   outline: none;
-  border: none;
+/*  border: none;*//*  border: none;*/
 }
 
 .page-login {
@@ -53,7 +53,6 @@
   }
 
 
-
   &__divInput {
     display: flex;
     justify-content: space-between;
@@ -67,9 +66,25 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-  &__input {
-    width: 80%;
+
+  &__divInput-red {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border: 2px solid red;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 48px;
+    width: 582px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
+
+    &__input {
+      width: 80%;
+    }
 
   .form-login__input {
     outline: none;
@@ -124,7 +139,11 @@
     font-size: 16px;
     line-height: 100%;
     color: #FFFFFF;
+    &[disabled] {
+      background: #EDF2F6;
+    }
   }
+
 
 
   .form-login__linkRegistration {
@@ -144,6 +163,8 @@
 
 .svgLock {
 }
+
+
 
 @media (min-width: 1200px) {
   .container-login {
