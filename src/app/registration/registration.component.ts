@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,11 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){
 
-    this.myForm = formBuilder.group({
+  }
+
+  ngOnInit(): void {
+
+    this.myForm = this.formBuilder.group({
 
       "userName": ["", [Validators.required]],
       "email": ["", [ Validators.required, Validators.email]],
@@ -24,14 +29,13 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   public submit(): void {
+    console.log('this.myForm.value', this.myForm.value);
     this.authService.registration(this.myForm.value).subscribe(data => {
-      alert('Пользователь успешно зарегистрирован!');
+      console.log('data', data);
+/*      alert('Пользователь успешно зарегистрирован!');
       this.myForm.reset();
-      /*this.router.navigate(['/login']);*/
+      this.router.navigate(['/login']);*/
     });
   }
 

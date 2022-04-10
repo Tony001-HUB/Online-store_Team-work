@@ -67,12 +67,26 @@
     padding-right: 10px;
   }
 
-  &__divInput-red {
+  .red {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #FFFFFF;
     border: 2px solid red;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 48px;
+    width: 582px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .blue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border: 2px solid blue;
     box-sizing: border-box;
     border-radius: 5px;
     height: 48px;

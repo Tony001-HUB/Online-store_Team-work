@@ -1,4 +1,3 @@
-/*
 *,
 *::before,
 *::after {
@@ -19,7 +18,7 @@ body {
   margin: 0 auto;
 }
 
-h1, h2, h3, h4, h5, h6, p,
+h1, h2, h3, h4, h5, h6,
 section,
 figure {
   margin: 0;
@@ -46,4 +45,10 @@ button {
   border: none;
   cursor: pointer;
 }
-*/
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}

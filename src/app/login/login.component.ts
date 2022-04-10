@@ -13,8 +13,14 @@ export class LoginComponent implements OnInit {
   myLoginForm: FormGroup;
   private user: User;
   type = 'text';
+  dddd :boolean;
 
   constructor(private formLoginBuilder: FormBuilder, private enterService: AuthService, private router: Router) {
+
+  }
+
+  ngOnInit(): void {
+
     this.user = User.getInstance();
     this.myLoginForm = this.formLoginBuilder.group({
 
@@ -23,16 +29,12 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-
-  }
-
   public enter(): void {
     this.enterService.login(this.myLoginForm.value).subscribe(data => {
       this.user.token = data.token;
       this.user.email = this.myLoginForm.value.email;
       if (this.user.token && this.user.email) {
-        console.log('Вы зашли Ура');
+        console.log('Вы зашли Ура Ваш токен', this.user.token );
       }
       else console.log('No');
     })
@@ -44,5 +46,12 @@ export class LoginComponent implements OnInit {
     }
     else
       this.type = 'text';
+
+    if (this.myLoginForm.value.email.invalid)
+      this.dddd = true;
+    else
+      this.dddd = false;
   }
+
+
 }

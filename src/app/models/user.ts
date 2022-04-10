@@ -8,7 +8,7 @@ export interface IUser {
 export class User {
   private static userInstance: User;
   private _token: string;
-  private _email: string;
+  private _email: string ;
 
   private constructor() {}
 
@@ -31,14 +31,14 @@ export class User {
 
   get token(): string  {
     if (localStorage.getItem('token')) {
-      this._token = localStorage.getItem('token');
+      this._token = localStorage.getItem('token') as any;
     }
     return this._token;
   }
 
   get email(): string  {
     if (localStorage.getItem('email')) {
-      this._email = localStorage.getItem('email');
+      this._email = localStorage.getItem('email') as any;
     }
     return this._email;
   }
