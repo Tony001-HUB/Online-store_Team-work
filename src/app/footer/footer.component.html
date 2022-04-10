@@ -15,26 +15,27 @@
       </div>
      <div class="footer-colum">
         <h3 class="footer-title">Для клиента</h3>
-        <p><a class="footer-link" href="">Как купить</a></p>
-        <p><a class="footer-link" href="">Доставка и оплата</a></p>
-        <p><a class="footer-link" href="">Кредит</a></p>
-        <p><a class="footer-link" href="">Политика конфиденциальности</a></p>
-        <p><a class="footer-link" href="">Вопросы и ответы (F.A.Q.)</a></p>
-        <p><a class="footer-link" href="">Сервис и гарантия</a></p>
+        <ul *ngFor="let item of forClientMenu" class="footer-list">
+          <li class="footer-list-item">
+            <a class="footer-link" href="">{{item.name}}</a>
+          </li>
+        </ul>
      </div>
      <div class="footer-colum">
        <h3 class="footer-title">О магазине</h3>
-       <p><a class="footer-link" href="">Отзывы</a></p>
-       <p><a class="footer-link" href="">Наши преимущества</a></p>
-       <p><a class="footer-link" href="">История компании</a></p>
-       <p><a class="footer-link" href="">Сотрудничество</a></p>
-       <p><a class="footer-link" href="">Партнёрская программа</a></p>
-       <p><a class="footer-link" href="">Вакансии</a></p>
+       <ul *ngFor="let item of aboutMenu" class="footer-list">
+         <li class="footer-list-item">
+           <a class="footer-link" href="">{{item.name}}</a>
+         </li>
+       </ul>
      </div>
      <div class="footer-colum">
        <h3 class="footer-title">Сотрудничество</h3>
-       <p><a class="footer-link" href="">Оптом</a></p>
-       <p><a class="footer-link" href="">Дропшиппинг</a></p>
+      пшге
+         <li class="footer-list-item">
+           <a class="footer-link" href="">{{item.name}}</a>
+         </li>
+       </ul>
      </div>
    </div>
     <hr>

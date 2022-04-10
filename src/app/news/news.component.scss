@@ -34,8 +34,7 @@
   margin-bottom: 20px;
 }
 
-.exchange-title,
-.weather-title{
+.exchange-title {
   border: 1px solid green;
   border-radius: 5px;
   color: darkgreen;
@@ -43,6 +42,10 @@
   text-align: center;
 }
 
+.news-block-header-weather {
+  display: flex;
+  align-items: center;
+}
 
 .main-chapter-info {
   grid-column: span 3;
@@ -62,6 +65,15 @@
 .main-chapter-link:focus{
   color: grey;
   transition: 0.5s;
+}
+
+.img-weather {
+  max-width: 32px;
+}
+
+.weather-title {
+  font-size: 25px;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 900px) {
