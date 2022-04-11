@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  goodsUrl: 'https://smarttechnic-cf519-default-rtdb.firebaseio.com'
 };

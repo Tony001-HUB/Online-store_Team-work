@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
-import { Toolbar } from '../models/toolbar.interface';
-import { ToolbarService } from '../services/toolbar.service';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
+import { EventEmitter } from '@angular/core';
+import { ICatalog } from '../models/catalog';
+import { IToolbar } from '../models/toolbar';
+import { ContentService } from '../services/content.service';
 
 @Component({
   selector: 'app-header',
@@ -11,40 +13,25 @@ import { ToolbarService } from '../services/toolbar.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('searchInput') searchInput: ElementRef;
-  isActive = false;
+  @Output() sourceChange = new EventEmitter(); 
   sub: Subscription;
-  accountMenu: Toolbar[] = [];
-  catalogMenu = [
-    {name: 'Гироскутеры', src: '../../assets/icons/catalog/hydro_scooter.svg'},
-    {name: 'Электросамокаты', src: '../../assets/icons/catalog/electric_scooter.svg'},
-    {name: 'Моноколеса', src: '../../assets/icons/catalog/unicycle.svg'},
-    {name: 'Сигвеи и мини-сигвеи', src: '../../assets/icons/catalog/segway.svg'},
-    {name: 'Электроскутеры', src: '../../assets/icons/catalog/electric_scooter_2.svg'},
-    {name: 'Электровелосипеды', src: '../../assets/icons/catalog/electric_bike.svg'},
-    {name: 'Электроскейты', src: '../../assets/icons/catalog/electric_skateboard.svg'},
-    {name: 'Электромобили', src: '../../assets/icons/catalog/electric_car.svg'},
-    {name: 'Аксессуары', src: '../../assets/icons/catalog/accessories.svg'},
-    {name: 'Умные игрушки', src: '../../assets/icons/catalog/smart_toy.svg'},
-    {name: 'Smart Watch', src: '../../assets/icons/catalog/smart_watch.svg'}
-  ];
+  accountMenu: IToolbar[] = [];
+  isActive = false;
 
-  constructor(private toolbarService: ToolbarService) { }
+  constructor(
+    private contentService: ContentService
+    ) { }
 
   ngAfterViewInit(): void {
     this.search()
   }
 
   ngOnInit(): void {
-    this.accountMenu = this.toolbarService.accountMenu;
+    this.accountMenu = this.contentService.accountMenu;
    }
 
   ngOnDestroy(): void {
     this.sub && this.sub.unsubscribe();
-  }
-
-  public toCatalogSection(event: Event) {
-    event.stopPropagation()
-    console.log(event.target)
   }
 
   public search() {
