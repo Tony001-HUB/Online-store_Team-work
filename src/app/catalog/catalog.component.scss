@@ -1,0 +1,30 @@
+.catalog {
+    width: 310px;
+    height: 544px;
+    background: rgba($color: #2A5275, $alpha: 0.2);
+    border-radius: 0px 0px 8px 8px;
+    &__items {
+        display: grid;
+        grid-template-rows: repeat(auto-fill, 48px);
+        align-items: center;
+        padding: 8px 0;
+    }
+    &__item {
+        height: 48px;
+        display: grid;
+        grid-template-columns: 32px 232px;
+        align-items: center;
+        column-gap: 10px;
+        padding: 0 18px;
+        &:hover {
+            background: rgba($color: #2A5275, $alpha: 0.1);
+        }
+        &-btn {
+            font-size: 16px;
+            line-height: 16px;
+            color: #070C11;
+            text-align: left;
+            background: transparent;
+        }
+    }
+}

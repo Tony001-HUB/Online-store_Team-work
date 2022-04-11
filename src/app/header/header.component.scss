@@ -156,33 +156,43 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 310px 970px;
+            grid-template-rows: 60px 544px;
             column-gap: 20px;
         }
-    }
-    &__catalog {
-        width: 310px;
-        height: 604px;
-        display: grid;
-        grid-template-rows: 60px 544px;
-        background: rgba($color: #2A5275, $alpha: 0.2);
-        border-radius: 0px 0px 8px 8px;
-        &-btns {
+        &-menu {
             display: grid;
-            grid-template-columns: 24px 130px;
+            grid-template-columns: 24px 135px;
             align-items: center;
-            column-gap: 15px;
-            padding-left: 24px;
+            column-gap: 12px;
+            grid-column: 1 / 2;
+            padding: 0 24px;
+            background: #243C53;
         }
         &-hamburger {
             height: 14px;
             background: transparent;
         }
         &-btn {
+            height: 60px;
             background: transparent;
             font-size: 16px;
             line-height: 16px;
             color: #FFFFFF;
         }
+        &-catalog {
+            display: grid;
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+        &-slider {
+            display: grid;
+            grid-column: 2 / 3;
+        }
+    }
+    &__catalog {
+        width: 310px;
+        background: rgba($color: #2A5275, $alpha: 0.2);
+        border-radius: 0px 0px 8px 8px;
         &-items {
             display: grid;
             grid-template-rows: repeat(auto-fill, 48px);
@@ -211,9 +221,9 @@
     &__menu {
         height: 60px;
         display: grid;
-        grid-template-rows: 60px 524px;
-        row-gap: 20px;
         align-items: center;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
         &-items {
             width: 970px;
             display: flex;

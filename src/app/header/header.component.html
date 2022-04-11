@@ -52,26 +52,18 @@
 
     <div class="header__nav">
         <div class="header__nav-wrapper">
-            <div class="header__catalog">
-                <div class="header__catalog-btns">
-                    <button class="header__catalog-hamburger">
-                        <img src="../../assets/icons/hamburger.svg" alt="button of the context menu">
-                    </button>
-                    <button class="header__catalog-btn">Каталог товаров</button>
-                </div>
-
-                <div class="header__catalog-menu">
-                    <div class="header__catalog-items">
-                        <div 
-                            class="header__catalog-item" 
-                            *ngFor="let item of catalogMenu" 
-                            (click)="toCatalogSection($event)"
-                            ><img src="{{item.src}}" alt="icon of the menu item">
-                            <button class="header__catalog-item-btn">{{item.name}}</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="header__nav-menu">
+                <button class="header__nav-hamburger">
+                    <img src="../../assets/icons/hamburger.svg" alt="button of the context menu">
+                </button>
+                <button class="header__nav-btn">Каталог товаров</button>
             </div>
+
+
+            <div class="header__nav-catalog">
+                <app-catalog></app-catalog>
+            </div>
+            
 
             <nav class="header__menu">
                 <ul class="header__menu-items">
@@ -88,15 +80,17 @@
                         <a href="#">Сервис и гарантия</a>
                     </li>
                     <li class="header__menu-item">
-                        <a href="#">Опт/дропшиппинг</a>
+                        <a href="#">Новости</a>
                     </li>
                     <li class="header__menu-item">
                         <a href="#">Контакты</a>
                     </li>
                 </ul>
-                <app-slider></app-slider>
             </nav>
-            
+
+            <div class="header__nav-slider">
+                <app-slider></app-slider>
+            </div>
         </div>
     </div>
 </header>
