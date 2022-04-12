@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {WeatherService} from "../services/weather.service";
 import {CurrencyService} from "../services/currency.service";
-import {Subscription} from "rxjs";
+import {map, Subscription} from "rxjs";
+import {NewsCategoriesService} from "../services/news-categories.service";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-news',
@@ -14,16 +16,22 @@ export class NewsComponent implements OnInit {
   lon: number;
   weatherData;
   currentData;
+  newsCategories;
   sub: Subscription;
 
-  constructor(private weatherService: WeatherService, private currencyService: CurrencyService) {
-    this.sub = new Subscription()
-  }
+  constructor(
+    private weatherService: WeatherService,
+    private currencyService: CurrencyService,
+    private newsCategoriesService: NewsCategoriesService
+  )
+  { this.sub = new Subscription() }
 
   ngOnInit(): void {
-    this.getLocation()
+    this.getLocation();
     this.getCurrencyData();
-    this.weatherService.getWeatherData(35, 40).subscribe(console.log)
+    this.weatherService.getWeatherData(35, 40).subscribe(console.log);
+    this.getAllCategoriesNews();
+    this.test();
   }
 
   ngOnDestroy():void {
@@ -44,5 +52,23 @@ export class NewsComponent implements OnInit {
 
   getCurrencyData() {
     this.currencyService.getCurrencyInfo().subscribe(data => this.currentData = data)
+  }
+
+  getAllCategoriesNews() {
+    this.newsCategoriesService.getAllCategoriesNews().pipe(
+      map(data => this.newsCategoriesService.categories.map( item => {
+        if(data.categoryId === item.categoryId) { }
+        return {
+          categoryId: item.categoryId,
+          title: item.title,
+          description: item.description,
+          src: item.src,
+        }
+      }))
+    ).subscribe(data => this.newsCategories = data)
+  }
+
+  test() {
+    this.newsCategoriesService.getAllCategoriesNews().subscribe(data => console.log(data))
   }
 }

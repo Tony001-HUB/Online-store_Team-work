@@ -21,8 +21,4 @@ export class WeatherService {
 
     return this.http.get(this.url, { params })
   }
-
-  // getWeatherInfo(): Observable<> {
-  //   return this.http.get<IWeatherData>('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=5abdc3b11b2cfecaf31fc8665909b7eb')
-  // }
 }
