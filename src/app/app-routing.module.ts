@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './footer/footer.component';
 import { GoodsComponent } from './goods/goods.component';
-import { HeaderComponent } from './header/header.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
-  {path: 'home', component: HeaderComponent}
+  {path: 'home', component: MainLayoutComponent, children: [
+    {path: 'catalog', component: GoodsComponent},
+    {path: 'news', component: NewsComponent}
+  ]}
 ];
 
 @NgModule({
