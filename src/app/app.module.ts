@@ -11,6 +11,7 @@ import { GoodsComponent } from './goods/goods.component';
 import { FormsModule } from '@angular/forms';
 import { CatalogComponent } from './catalog/catalog.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     HeaderComponent,
     SliderComponent,
     GoodsComponent,
-    CatalogComponent
+    CatalogComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
