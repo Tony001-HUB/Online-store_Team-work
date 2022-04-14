@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class NewsCategoriesService {
 
+
   categories = [
     {
       categoryId: '426d983e-bb80-4b13-f4fe-08da1c4bab8e',
@@ -62,6 +63,10 @@ export class NewsCategoriesService {
 
   getAllCategoriesNews(): Observable<any> {
     return this.http.get<any>('https://xnews.azurewebsites.net/Categories/list')
+  }
+
+  getAllNews(): Observable<any> {
+    return this.http.get<any>('https://xnews.azurewebsites.net/Categories/631a86b4-9e80-4381-f505-08da1c4bab8e/posts')
   }
 }
 

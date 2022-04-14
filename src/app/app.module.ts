@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { GoodsComponent } from './goods/goods.component';
 import { FormsModule } from '@angular/forms';
+import { AllNewsComponent } from './news/all-news/all-news.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     NewsComponent,
     HeaderComponent,
     SliderComponent,
-    GoodsComponent
+    GoodsComponent,
+    AllNewsComponent
   ],
   imports: [
     BrowserModule,

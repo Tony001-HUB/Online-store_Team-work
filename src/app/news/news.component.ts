@@ -3,7 +3,6 @@ import {WeatherService} from "../services/weather.service";
 import {CurrencyService} from "../services/currency.service";
 import {map, Subscription} from "rxjs";
 import {NewsCategoriesService} from "../services/news-categories.service";
-import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-news',
@@ -32,6 +31,7 @@ export class NewsComponent implements OnInit {
     this.weatherService.getWeatherData(35, 40).subscribe(console.log);
     this.getAllCategoriesNews();
     this.test();
+    this.testNews();
   }
 
   ngOnDestroy():void {
@@ -70,5 +70,9 @@ export class NewsComponent implements OnInit {
 
   test() {
     this.newsCategoriesService.getAllCategoriesNews().subscribe(data => console.log(data))
+  }
+
+  testNews() {
+    this.newsCategoriesService.getAllNews().subscribe(data => console.log(data))
   }
 }
