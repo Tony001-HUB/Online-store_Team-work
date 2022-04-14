@@ -12,6 +12,9 @@ import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { GoodsComponent } from './goods/goods.component';
 import { FormsModule } from '@angular/forms';
+import { CatalogComponent } from './catalog/catalog.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,17 @@ import { FormsModule } from '@angular/forms';
     NewsComponent,
     HeaderComponent,
     SliderComponent,
-    GoodsComponent
+    GoodsComponent,
+    CatalogComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

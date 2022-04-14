@@ -1,0 +1,11 @@
+<div class="catalog">
+    <div class="catalog__items">
+        <div 
+            class="catalog__item" 
+            *ngFor="let item of catalogMenu" 
+            (click)="toCatalogSection(item.nameEng)"
+            ><img src="{{item.src}}" alt="icon of the menu item">
+            <button class="catalog__item-btn">{{item.name}}</button>
+        </div>
+    </div>
+</div>

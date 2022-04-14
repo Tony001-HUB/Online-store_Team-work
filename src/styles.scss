@@ -52,3 +52,30 @@ input::-webkit-search-results-button,
 input::-webkit-search-results-decoration {
   display: none;
 }
+
+.slick-prev:before, .slick-next:before {
+  color: black!important;
+}
+
+.slick-dots {
+  bottom: 20px !important;
+  height: 3px !important;
+  li {
+    height: 3px !important;
+    max-width: auto !important;
+    button {
+      background: #C8CACB !important;
+      opacity: 0.5 !important;
+      border-radius: 2px !important;
+      max-width: auto !important;
+      height: 3px !important;
+      padding: 0 !important;
+      &::before {
+        display: none !important;
+      }
+    }
+    &.slick-active {
+      background: #EDF2F6 !important;
+    }
+  }
+}
