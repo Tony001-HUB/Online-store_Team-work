@@ -46,26 +46,64 @@
   line-height: 100%;
   color: #070C11;
 
-  &__labelInput {
+  .form-registration__divLabelInput {
+    position: relative;
     padding-top: 20px;
-    padding-bottom: 8px;
-    width: 100%;
   }
-  &__divInput {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #FFFFFF;
-    border: 1px solid #EAEAF0;
-    box-sizing: border-box;
+
+  .form-registration__label {
+
+  }
+
+  .svgLock {
+    position: absolute;
+    top: 55px;
+    left: 10px;
+  }
+
+  .inputPassword {
+    text-indent: 30px;
+  }
+
+  .form-registration__input {
+    /*    display: flex;
+        justify-content: space-between;
+        align-items: center;*/
+    background: #FFFFFF !important;
+    border: 1px solid #EAEAF0 !important;
     border-radius: 5px;
     height: 48px;
-    width: 582px;
+    width: 100%;
+    margin-top: 8px;
     padding-left: 10px;
     padding-right: 10px;
+
+
+    &:hover {
+      background: #f4f9fd !important;
+      transition: all 300ms ease;
+
+    }
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid grey !important;
+    }
   }
-  &__input {
-    width: 80%;
+
+  .svgEye {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+  }
+
+  .validation {
+    color: #F15152;
+    padding-top: 3px;
+  }
+
+  .divWithErrors {
+    color: #F15152;
+    padding-bottom: 15px;
   }
 
   &__aboutRegistration {
@@ -76,6 +114,12 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 130%;
+  }
+
+  &__textAboutRegistration {
+    margin-bottom: 0px;
+    padding-bottom: 4px;
+
   }
 
   &__divBtn {
@@ -106,6 +150,8 @@
     line-height: 100%;
     text-align: center;
   }
+
+
 }
 
 @media (min-width: 1200px) {
@@ -168,237 +214,3 @@
     width: 252px;
   }
 }
-
-
-
-
-/*.container-registration {
-
-}
-.registration-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 68px;
-  background: #EDF2F6;
-}
-
-.registration-title__entrance {
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 120%;
-  color: #070C11;
-  padding-left: 20px;
-}
-
-.svgExit:hover {
-  fill: yellow;
-}
-
-.containerRegistrationForm {
-  padding-left: 20px;
-}
-
-.registrationFormLabelInput {
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  color: #070C11;
-  padding-top: 20px;
-  padding-bottom: 8px;
-  width: 100%;
-}
-
-.divInput {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #FFFFFF;
-  border: 1px solid #EAEAF0;
-  box-sizing: border-box;
-  border-radius: 5px;
-  height: 48px;
-  width: 582px;
-}
-
-input {
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-}
-
-.inputNumber {
-  padding-left: 20px;
-}
-
-.svgLock {
-  padding-left: 25px;
-}
-
-.svgEye {
-  padding-right: 16px;
-}
-
-.svgEye:hover {
-
-}
-
-.svgLock:hover {
-
-}
-
-
-.inputName, .inputEmail, .inputPhone, .inputPassword {
-  outline: none;
-  border: none;
-}
-
-.aboutRegistration {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.textAboutRegistration {
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  color: #070C11;
-}
-
-.linkUserAgreement {
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-}
-
-.divAboutRegistration {
-  padding-top: 8px;
-}
-
-.divRemember {
-  display: flex;
-  align-items: center;
-  padding-top: 22px;
-  padding-bottom: 22px;
-}
-
-#remember {
-  width: 20px;
-  height: 20px;
-  padding-right: 7px;
-}
-
-.textRemember {
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  color: #070C11;
-}
-
-.divBtn {
-  display: flex;
-  justify-content: center;
-}
-
-
-
-.btnRegistration {
-  background: #2A5275;
-  border-radius: 4px;
-  height: 48px;
-  width: 282px;
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 100%;
-  color: #FFFFFF;
-}
-
-
-.divLinkRegistration {
-  padding-top: 20px;
-  font-family: 'Exo 2', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-}*/
-/*
-@media (min-width: 1200px) {
-  .containerRegistration {
-    width: 1100px;
-  }
-
-  .divInput {
-    width: 582px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-
-  .containerRegistration {
-    width: 922px;
-  }
-
-  .divInput {
-    width: 582px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .containerRegistration {
-    width: 698px;
-  }
-
-  .divInput {
-    width: 482px;
-  }
-}
-
-@media (max-width: 767px) {
-  .containerRegistration {
-    width: 450px;
-  }
-
-  .divInput {
-    width: 350px;
-  }
-}
-
-@media (max-width: 480px) {
-  .containerRegistration {
-    width: 310px;
-  }
-
-  .divInput {
-    width: 282px;
-  }
-}
-
-@media (max-width: 320px) {
-  .containerRegistration {
-    width: 270px;
-  }
-
-  .divInput {
-    width: 252px;
-  }
-}*/

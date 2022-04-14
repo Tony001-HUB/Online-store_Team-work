@@ -13,6 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   myForm : FormGroup;
   type = 'text';
+  errorMessage: string ='';
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){
 
@@ -25,17 +26,21 @@ export class RegistrationComponent implements OnInit {
       "userName": ["", [Validators.required]],
       "email": ["", [ Validators.required, Validators.email]],
       "phoneNumber": ["", [Validators.required]],
-      "password": ["", [Validators.required]],
+      "password": ["", [Validators.required, Validators.pattern(/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{6,}/)]],
     });
   }
 
   public submit(): void {
-    console.log('this.myForm.value', this.myForm.value);
-    this.authService.registration(this.myForm.value).subscribe(data => {
-      console.log('data', data);
-/*      alert('Пользователь успешно зарегистрирован!');
-      this.myForm.reset();
-      this.router.navigate(['/login']);*/
+    console.log(this.myForm.value);
+    this.authService.registration(this.myForm.value).subscribe({
+      next: (data) => {
+        console.log("data", data)
+      },
+      error: (error) => {
+        console.log("error", error);
+        this.errorMessage = error.error;
+      },
+      complete: () => {this.errorMessage = ''}
     });
   }
 
@@ -46,5 +51,7 @@ export class RegistrationComponent implements OnInit {
     else
       this.type = 'text';
   }
+
+
 
 }

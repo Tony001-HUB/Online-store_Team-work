@@ -5,9 +5,18 @@ import {map, Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {tap} from "rxjs/operators";
 import jwt_decode from "jwt-decode";
+import {LoginComponent} from "../login/login.component";
+import {RegistrationComponent} from "../registration/registration.component";
 
-interface IResponse {
-  token: string;
+
+interface Token {
+  accessToken: string,
+  refreshToken: string
+}
+
+interface JwtOptions {
+  nbf: number,
+  exp: number
 }
 
 @Injectable({
@@ -15,22 +24,40 @@ interface IResponse {
 })
 export class AuthService {
 
-  private decoded: any;
+  private decoded: JwtOptions;
 
   constructor(private http: HttpClient) { }
 
-  public registration(userData: IUser): Observable<IUser> {
-    return this.http.post<IUser>(`${environment.apiUrl}/Users/register`, userData)
-      .pipe(map(token => token) ,tap(this.setToken));
+  public registration(userData: IUser): Observable<string> {
+    console.log(userData);
+    return this.http.post(`${environment.apiUrl}/Users/register`,{userData}, {responseType: 'text'});
   }
 
-  public login(userData: IUser): Observable<IResponse> {
-    return this.http.post<IResponse>(`${environment.apiUrl}/Users/login`, userData);
+  public login(userData: IUser): Observable<any> {
+    return this.http.post<Token>(`${environment.apiUrl}/Users/login`, userData)
+      .pipe(
+        map(response => response),
+        tap(this.setToken),
+      )
   }
 
-  setToken(token: any) {
-    this.decoded = jwt_decode(token.accessToken);
-    console.log('this decode',this.decoded)
+
+
+  public setToken(response: Token) {
+    /*console.log(response);*/
+    if (response) {
+      this.decoded = jwt_decode(response.accessToken);
+      console.log(this.decoded);
+      const endTokenTimeRent = new Date(this.decoded.exp * 1000);
+      localStorage.setItem('jwt-token-end', endTokenTimeRent.toString());
+      localStorage.setItem('jwt-token', response.accessToken);
+      localStorage.setItem('refresh-token', response.refreshToken);
+    } else {
+      localStorage.clear();
+    }
   }
 
+  public setLogin(login: string) {
+    localStorage.setItem('user-login', login);
+  }
 }
