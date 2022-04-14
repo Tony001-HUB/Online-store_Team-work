@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../services/weather.service";
 import {CurrencyService} from "../services/currency.service";
 import {map, Subscription} from "rxjs";
 import {NewsCategoriesService} from "../services/news-categories.service";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-news',
@@ -17,29 +19,31 @@ export class NewsComponent implements OnInit {
   currentData;
   newsCategories;
   sub: Subscription;
+  allNews;
 
   constructor(
     private weatherService: WeatherService,
     private currencyService: CurrencyService,
-    private newsCategoriesService: NewsCategoriesService
-  )
-  { this.sub = new Subscription() }
+    private newsCategoriesService: NewsCategoriesService,
+    private router: Router
+  ) {
+    this.sub = new Subscription()
+    this.allNews = [];
+  }
 
   ngOnInit(): void {
     this.getLocation();
     this.getCurrencyData();
-    this.weatherService.getWeatherData(35, 40).subscribe(console.log);
+    this.weatherService.getWeatherData(35, 40).subscribe();
     this.getAllCategoriesNews();
-    this.test();
-    this.testNews();
   }
 
-  ngOnDestroy():void {
+  ngOnDestroy(): void {
     this.sub && this.sub.unsubscribe();
   }
 
   getLocation() {
-    if('geolocation' in navigator) {
+    if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(data => {
         this.lat = data.coords.latitude;
         this.lon = data.coords.longitude;
@@ -56,8 +60,9 @@ export class NewsComponent implements OnInit {
 
   getAllCategoriesNews() {
     this.newsCategoriesService.getAllCategoriesNews().pipe(
-      map(data => this.newsCategoriesService.categories.map( item => {
-        if(data.categoryId === item.categoryId) { }
+      map(data => this.newsCategoriesService.categories.map(item => {
+        if (data.categoryId === item.categoryId) {
+        }
         return {
           categoryId: item.categoryId,
           title: item.title,
@@ -68,11 +73,12 @@ export class NewsComponent implements OnInit {
     ).subscribe(data => this.newsCategories = data)
   }
 
-  test() {
-    this.newsCategoriesService.getAllCategoriesNews().subscribe(data => console.log(data))
-  }
-
-  testNews() {
-    this.newsCategoriesService.getAllNews().subscribe(data => console.log(data))
+  getNews(id: string) {
+    this.newsCategoriesService.getAllNews(id).subscribe((data) => { console.log(data); this.allNews = data })
+    if(this.allNews != undefined) {
+      this.router.navigate(['home/all-news'], this.allNews).then()
+    } else {
+      console.log('undefined')
+    }
   }
 }

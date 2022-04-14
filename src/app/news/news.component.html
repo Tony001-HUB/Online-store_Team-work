@@ -1,3 +1,4 @@
+
 <div class="news">
   <div class="container">
       <div class="news__block-header">
@@ -5,7 +6,7 @@
             <h3 class="news__header">Новости</h3>
           </div>
           <div class="news__block-header-weather">
-            <img class="img__weather" src="./assets/img/weather-icon.png"><span class="weather__title">{{weatherData?.name}} -  {{(weatherData?.main.temp - 32) * 5/9 | number: '1.0-0' }}  &#176;</span>
+            <img class="img__weather" src="./assets/img/weather-icon.png" alt="weather-icon"><span class="weather__title">{{weatherData?.name}}  {{(weatherData?.main.temp - 32) * 5/9 | number: '1.0-0' }}  &#176;</span>
           </div>
         <div  class="news__block-header-exchange">
           <h3 class="exchange__title">1 USD = {{currentData?.rates.RUB.rate | number: '2.1-2'}} RUB</h3>
@@ -19,9 +20,11 @@
           <div class="main__chapter-info">
             <h3 class="main__chapter-title">{{item.title}}</h3>
             <p class="main__chapter-text">{{item.description}}</p>
-            <a routerLink="/all-news" class="main__chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
+            <a routerLink="/home/all-news" (click)="getNews(item.categoryId)" class="main__chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
           </div>
         </div>
     </div>
   </div>
 </div>
+
+

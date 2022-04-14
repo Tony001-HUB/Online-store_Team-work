@@ -1,8 +1,10 @@
-<p>all-news works!</p>
-
-<ul *ngFor="let item of allNews">
-  <li>
-    <h3>{{item.title}}</h3>
-    <p>{{item.content}}</p>
-  </li>
-</ul>
+<div class="container">
+  <div class="all-news">
+    <h1>all news</h1>
+      <div *ngFor="let item of news" class="all-news__row">
+          <h3>{{item.title}}</h3>
+          <hr>
+          <p>{{item.content}}</p>
+      </div>
+  </div>
+</div>

@@ -1,5 +1,172 @@
 .goods {
-    margin-top: 80px;
+    margin: 80px 0 80px 0;
+    &__wrapper {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 325px);
+        row-gap: 20px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    &__item {
+        position: relative;
+        padding: 20px;
+        width: 326px;
+        min-height: 596px;
+        border: 1px solid #EAEAF0;
+        background: #FFFFFF;
+        &:hover {
+            filter: drop-shadow(0px 15px 20px rgba(42, 82, 117, 0.1));
+        }
+        &-additional {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        &-novelty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 98px;
+            height: 31px;
+            background: #48A69B;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #EDF2F6;
+            margin-left: auto;
+        }
+        &-bestseller {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 31px;
+            width: 122px;
+            background: #D73838;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #EDF2F6;
+            text-align: center;
+        }
+        &-img {
+            width: 286px;
+            height: 224px;
+            display: flex;
+            align-items: center;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        &-title {
+            height: 78px;
+            margin-top: 41px;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 130%;
+        }
+        &-rating {
+            margin-top: 20px;
+            width: 194px;
+            display: flex;
+            justify-content: space-between;
+        }
+        &-stars {
+            margin-right: 10px;
+        }
+        &-comments {
+            min-width: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button {
+                width: 24px;
+                height: 24px;
+                background: transparent;
+                margin-right: 5px;
+            }
+            span {
+                display: block;
+            }
+        }
+        &-info {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 117px 106px;
+            justify-content: space-between;
+        }
+        &-genprice {
+            font-weight: 700;
+            line-height: 130%;
+            text-decoration-line: line-through;
+            color: #838688;
+        }
+        &-curprice {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 130%;
+            color: #070C11;
+        }
+        &-discount {
+            margin-top: 5px;
+            width: 80px;
+            height: 24px;
+            background: #F37748;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 130%;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            button {
+                width: 48px;
+                height: 48px;
+                border: 1px solid #C8CACB;
+                box-sizing: border-box;
+                border-radius: 4px;
+                background: transparent;
+            }
+        }
+        &-purchase {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        &-buyBtn {
+            width: 228px;
+            height: 48px;
+            background: #FFFFFF;
+            border: 1px solid #4878A6;
+            box-sizing: border-box;
+            border-radius: 4px;
+            font-weight: 700;
+            color: #4878A6;
+        }
+        &-cartBtn {
+            width: 48px;
+            height: 48px;
+            background: #4878A6;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+                path {
+                    fill: #fff;
+                }
+            }
+            &:hover {
+                background: #2A5275;
+            }
+        }
+    }
 }
 
 @media (max-width: 1200px) {
