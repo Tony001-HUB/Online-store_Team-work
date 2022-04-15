@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  forClientMenu = [
+  public forClientMenu = [
     {name: 'Как купить'},
     {name: 'Доставка и оплата'},
     {name: 'Кредит'},
@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
     {name: 'Вопросы и ответы (F.A.Q.)'},
     {name: 'Сервис и гарантия'},
   ]
-  aboutMenu = [
+  public aboutMenu = [
     {name: 'Отзывы'},
     {name: 'Наши преимущества'},
     {name: 'История компании'},
@@ -23,14 +23,12 @@ export class FooterComponent implements OnInit {
     {name: 'Партнёрская программа'},
     {name: 'Вакансии'},
   ]
-  cooperationMenu = [
+   public cooperationMenu = [
     {name: 'Оптом'},
     {name: 'Дропшиппинг'},
   ]
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

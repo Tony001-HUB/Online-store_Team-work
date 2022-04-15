@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsCategoriesService} from "../../services/news-categories.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
+import {INews} from "../../models/inews";
 
 
 @Component({
@@ -10,20 +11,20 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 })
 export class AllNewsComponent implements OnInit {
 
-  id;
-  news;
+  public news: INews [];
 
-  constructor(private newsService: NewsCategoriesService, private route: ActivatedRoute) { }
+  constructor(private newsService: NewsCategoriesService, private route: ActivatedRoute) {
+    this.news = [];
+  }
 
   ngOnInit(): void {
     this.route.paramMap
       .subscribe((params: ParamMap) => {
-        this.id = params.get('id')
+        this.getAllNews(params.get('id'))
       })
-    this.getAllNews(this.id);
   }
 
-  getAllNews(id) {
-    this.newsService.getAllNews(this.id).subscribe(data=> this.news = data)
+  public getAllNews(id) {
+    this.newsService.getAllNews(id).subscribe(news => this.news = news)
   }
 }
