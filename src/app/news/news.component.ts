@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {WeatherService} from "../services/weather.service";
 import {CurrencyService} from "../services/currency.service";
-import {map, Subscription} from "rxjs";
+import {map, mergeAll, Subscription} from "rxjs";
 import {NewsCategoriesService} from "../services/news-categories.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
 
 @Component({
@@ -25,10 +25,11 @@ export class NewsComponent implements OnInit {
     private weatherService: WeatherService,
     private currencyService: CurrencyService,
     private newsCategoriesService: NewsCategoriesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.sub = new Subscription()
-    this.allNews = [];
+    this.route.paramMap.subscribe(params => console.log(params))
   }
 
   ngOnInit(): void {
@@ -61,8 +62,7 @@ export class NewsComponent implements OnInit {
   getAllCategoriesNews() {
     this.newsCategoriesService.getAllCategoriesNews().pipe(
       map(data => this.newsCategoriesService.categories.map(item => {
-        if (data.categoryId === item.categoryId) {
-        }
+        if (data.categoryId === item.categoryId) {}
         return {
           categoryId: item.categoryId,
           title: item.title,
@@ -70,15 +70,10 @@ export class NewsComponent implements OnInit {
           src: item.src,
         }
       }))
-    ).subscribe(data => this.newsCategories = data)
+    ).subscribe(data => {this.newsCategories = data; console.log(this.newsCategories)})
   }
 
   getNews(id: string) {
-    this.newsCategoriesService.getAllNews(id).subscribe((data) => { console.log(data); this.allNews = data })
-    if(this.allNews != undefined) {
-      this.router.navigate(['home/all-news'], this.allNews).then()
-    } else {
-      console.log('undefined')
-    }
+    this.newsCategoriesService.getAllNews(id).subscribe((data) =>  this.allNews = data )
   }
 }

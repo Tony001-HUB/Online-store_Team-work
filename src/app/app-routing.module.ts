@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'home', component: MainLayoutComponent, children: [
     {path: 'catalog', component: GoodsComponent},
     {path: 'news', component: NewsComponent},
-    {path: 'all-news', component: AllNewsComponent},
+    {path: 'news/:id', component: AllNewsComponent},
   ]}
 ];
 

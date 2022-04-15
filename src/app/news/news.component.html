@@ -20,7 +20,7 @@
           <div class="main__chapter-info">
             <h3 class="main__chapter-title">{{item.title}}</h3>
             <p class="main__chapter-text">{{item.description}}</p>
-            <a routerLink="/home/all-news" (click)="getNews(item.categoryId)" class="main__chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
+            <a [routerLink]="item.categoryId" class="main__chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
           </div>
         </div>
     </div>

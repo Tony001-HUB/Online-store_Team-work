@@ -69,10 +69,6 @@ export class NewsCategoriesService {
     return this.http.get<any>(`https://xnews.azurewebsites.net/Categories/${id}/posts`)
   }
 
-  test(): Observable<any> {
-    return this.http.get<any>(`https://xnews.azurewebsites.net/Categories/631a86b4-9e80-4381-f505-08da1c4bab8e/posts`)
-  }
-
 }
 
 
