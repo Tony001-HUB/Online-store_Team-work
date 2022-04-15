@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AllNewsComponent} from "./news/all-news/all-news.component";
 import {NewsComponent} from "./news/news.component";
 import {GoodsComponent} from "./goods/goods.component";
-import {MainLayoutComponent} from "./main-layout/main-layout.component";
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 const routes: Routes = [
   {path: 'home', component: MainLayoutComponent, children: [
