@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'https://xnews.azurewebsites.net',
   weatherApiUrl: 'https://api.weatherstack.com/current?access_key=',
   weatherApiKey: '86fd39831af61b5620f1ee3abad3708e',
   goodsUrl: 'https://smarttechnic-cf519-default-rtdb.firebaseio.com'

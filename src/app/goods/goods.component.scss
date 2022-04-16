@@ -4,6 +4,7 @@
         margin-top: 40px;
         display: grid;
         grid-template-columns: repeat(auto-fill, 325px);
+        row-gap: 20px;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
     &__item {
@@ -168,14 +169,3 @@
     }
 }
 
-@media (max-width: 1200px) {
-    .container {
-        max-width: 960px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        max-width: 728px;
-    }
-}
