@@ -5,9 +5,6 @@ import {map, Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {tap} from "rxjs/operators";
 import jwt_decode from "jwt-decode";
-import {LoginComponent} from "../login/login.component";
-import {RegistrationComponent} from "../registration/registration.component";
-
 
 interface Token {
   accessToken: string,
@@ -22,6 +19,7 @@ interface JwtOptions {
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   private decoded: JwtOptions;
@@ -29,8 +27,13 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public registration(userData: IUser): Observable<string> {
-    console.log(userData);
-    return this.http.post(`${environment.apiUrl}/Users/register`,{userData}, {responseType: 'text'});
+    return this.http.post(`${environment.apiUrl}/Users/register`,
+      {
+        userName: userData.userName,
+        email: userData.email,
+        phoneNumber: userData.phoneNumber,
+        password: userData.password},
+      {responseType: 'text'});
   }
 
   public login(userData: IUser): Observable<any> {
@@ -41,13 +44,9 @@ export class AuthService {
       )
   }
 
-
-
   public setToken(response: Token) {
-    /*console.log(response);*/
     if (response) {
       this.decoded = jwt_decode(response.accessToken);
-      console.log(this.decoded);
       const endTokenTimeRent = new Date(this.decoded.exp * 1000);
       localStorage.setItem('jwt-token-end', endTokenTimeRent.toString());
       localStorage.setItem('jwt-token', response.accessToken);

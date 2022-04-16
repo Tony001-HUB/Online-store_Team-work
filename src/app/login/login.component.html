@@ -9,14 +9,12 @@
         </svg>
       </div>
     </div>
-
     <form [formGroup]="myLoginForm"  class="form-login">
       <div class="form-login__divLabelInput">
         <label class="form-login__label">Эл.почта или телефон</label>
         <input formControlName="email" class="form-login__input inputEmail">
         <div *ngIf="myLoginForm.controls['email'].invalid && myLoginForm.controls['email'].touched" class="validation">Некоректный email</div>
       </div>
-
       <div class="form-login__divLabelInput">
         <label class="form-login__labelInput">Пароль</label>
         <svg class="svgLock" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,26 +28,20 @@
         </svg>
         <div class="validation"></div>
       </div>
-
       <div class="form-login__link">
         <a href="#">Забыли пароль?</a>
       </div>
-
       <div class="form-login__checkbox">
         <input type="checkbox" id="remember" name="remember" formControlName="checkbox" >
         <p class="textRemember">Запомнить меня</p>
       </div>
-
       <div *ngIf="!!errorMessage " class="divWithErrors">{{errorMessage}}</div>
-
       <div class="form-login__button">
         <button (click)="enter()" class="button" type="submit" [disabled]="myLoginForm.invalid">Войти</button>
       </div>
       <div class="form-login__linkRegistration">
         <a routerLink="/registration">Зарегистрироваться</a>
       </div>
-
-
     </form>
   </div>
 </div>

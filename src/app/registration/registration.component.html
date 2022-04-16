@@ -9,26 +9,22 @@
         </svg>
       </div>
     </div>
-
     <form class="form-registration"  [formGroup]="myForm">
       <div class="form-registration__divLabelInput">
         <label class="form-registration__label">Имя</label>
         <input formControlName="userName" class="form-registration__input inputName" value="">
         <div *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched" class="validation">Введите имя пользователя</div>
       </div>
-
       <div class="form-registration__divLabelInput">
         <label class="form-registration__label">Эл.почта</label>
         <input formControlName="email" class="form-registration__input inputEmail" value="">
         <div *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].touched" class="validation">Некоректный email</div>
       </div>
-
       <div class="form-registration__divLabelInput">
         <label class="form-registration__label">Номер телефона</label>
         <input formControlName="phoneNumber" class="form-registration__input inputPhone" value="">
         <div *ngIf="myForm.controls['phoneNumber'].invalid && myForm.controls['phoneNumber'].touched" class="validation">Введите номер телефона</div>
       </div>
-
       <div class="form-registration__divLabelInput">
         <label class="form-registration__label">Придумайте пароль</label>
         <svg class="svgLock" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +38,6 @@
         </svg>
         <div *ngIf="myForm.controls['password'].invalid && myForm.controls['password'].touched" class="validation">Некоректный пароль (необходимо не менее 6 символов, хотя бы одна цифра и символ, одна буквы в верхнем регистре)</div>
       </div>
-
       <div class="form-registration__aboutRegistration">
         <p class="form-registration__textAboutRegistration">Регистрируясь вы соглашаетесь</p>
         <div class="form-registration__divAboutRegistration">
@@ -50,9 +45,7 @@
           <a class="form-registration__linkUserAgreement" href="#"> пользовательским соглашением</a>
         </div>
       </div>
-
       <div *ngIf="!!errorMessage " class="divWithErrors">{{errorMessage}}</div>
-
       <div class="form-registration__divBtn">
         <button (click)="submit()" [disabled]="myForm.invalid" class="form-registration__btnRegistration">Зарегистрироваться</button>
       </div>

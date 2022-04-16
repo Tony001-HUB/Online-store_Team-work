@@ -51,10 +51,6 @@
     padding-top: 20px;
   }
 
-  .form-login__label {
-
-  }
-
   .svgLock {
     position: absolute;
     bottom: 13px;
@@ -77,9 +73,6 @@
 
 
   .form-login__input {
-/*    display: flex;
-    justify-content: space-between;
-    align-items: center;*/
     background: #FFFFFF !important;
     border: 1px solid #EAEAF0 !important;
     border-radius: 5px;
@@ -106,7 +99,6 @@
     bottom: 13px;
     right: 10px;
   }
-
 
   .red {
     display: flex;
@@ -161,7 +153,6 @@
   #remember {
     width: 20px;
     height: 20px;
-    padding-right: 7px;
   }
 
   .textRemember {
@@ -171,6 +162,7 @@
     font-size: 16px;
     line-height: 100%;
     color: #070C11;
+    padding-left: 7px;
   }
 
   .form-login__button {
@@ -194,8 +186,6 @@
     }
   }
 
-
-
   .form-login__linkRegistration {
     padding-top: 20px;
     font-family: 'Exo 2', sans-serif;
@@ -213,8 +203,6 @@
 
 .svgLock {
 }
-
-
 
 @media (min-width: 1200px) {
   .container-login {

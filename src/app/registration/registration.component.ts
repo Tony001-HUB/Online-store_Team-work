@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
-import jwt_decode from "jwt-decode";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent implements OnInit, OnDestroy {
 
   myForm : FormGroup;
-  type = 'text';
-  errorMessage: string ='';
+  type: string = 'text';
+  errorMessage: string = '';
+  private subscription: Subscription;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){
-
   }
 
   ngOnInit(): void {
-
     this.myForm = this.formBuilder.group({
-
       "userName": ["", [Validators.required]],
       "email": ["", [ Validators.required, Validators.email]],
       "phoneNumber": ["", [Validators.required]],
@@ -31,19 +29,18 @@ export class RegistrationComponent implements OnInit {
   }
 
   public submit(): void {
-    console.log(this.myForm.value);
-    this.authService.registration(this.myForm.value).subscribe({
+    this.subscription = this.authService.registration(this.myForm.value).subscribe({
       next: (data) => {
-        console.log("data", data)
       },
       error: (error) => {
-        console.log("error", error);
         this.errorMessage = error.error;
       },
-      complete: () => {this.errorMessage = ''}
-    });
+      complete: () => {
+        this.errorMessage = '';
+        this.router.navigate(['/login']);
+      }
+    })
   }
-
   changeType() {
     if (this.type == 'text') {
       this.type = 'password';
@@ -52,6 +49,9 @@ export class RegistrationComponent implements OnInit {
       this.type = 'text';
   }
 
-
-
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 }

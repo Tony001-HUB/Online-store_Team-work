@@ -1,23 +1,10 @@
 <div class="slider">
-    <div class="slider__slides">
-        <div class="slider__slide">
-            <img src="../../assets/images/slider.png" alt="image for slider">
-        </div>
+  <ngx-slick-carousel
+    class="carousel"
+    #slickModal="slick-carousel"
+    [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img src="{{slide.src}}" alt="the slide of the main page's slider" width="100%">
     </div>
-    <div class="slider__pagination">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <ngx-slick-carousel
-        class="carousel"
-        #slickModal="slick-carousel"
-        [config]="slideConfig">
-        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-            <img src="{{slide.src}}" alt="the slide of the main page's slider" width="100%">
-        </div>
-    </ngx-slick-carousel>
+  </ngx-slick-carousel>
 </div>

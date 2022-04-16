@@ -1,74 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../models/user";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy{
   myLoginForm: FormGroup;
   private user: User;
-  type = 'text';
-  errorMessage: string ='';
+  public type: string = 'text';
+  public errorMessage: string = '';
   public valueUserLogin: string | null;
+  private subscription: Subscription;
 
   constructor(private formLoginBuilder: FormBuilder, private enterService: AuthService, private router: Router) {
-
   }
 
   ngOnInit(): void {
-
     if (localStorage.getItem('user-login') != null)
       this.valueUserLogin = localStorage.getItem('user-login')
     else
       this.valueUserLogin = '';
 
     this.myLoginForm = this.formLoginBuilder.group({
-
       "email": [`${this.valueUserLogin}`, [ Validators.required, Validators.email]],
       "password": ["", [Validators.required]],
       "checkbox": ["checked"],
     })
-
-
   }
 
   public enter(): void {
-    console.log('Состояние',this.myLoginForm.get('checkbox')?.value);
-    this.enterService.login(this.myLoginForm.value).subscribe({
+   this.subscription = this.enterService.login(this.myLoginForm.value).subscribe({
       next: (data) => {
-        console.log("data", data);
       },
-        error: (error) => {
-        console.log("error", error);
+      error: (error) => {
         this.errorMessage = error.error;
       },
-        complete: () => {
-          if (this.myLoginForm.get('checkbox')?.value != false)
-            this.enterService.setLogin(this.myLoginForm.get('email')?.value)
+      complete: () => {
+        if (this.myLoginForm.get('checkbox')?.value != false) {
+          this.enterService.setLogin(this.myLoginForm.get('email')?.value);
+          this.router.navigate(['/home'])
+        }
       }
-
-
-
-
-
-/*      this.user.token = data.token;
-      this.user.email = this.myLoginForm.value.email;
-      if (this.user.token && this.user.email) {
-        console.log('Вы зашли Ура Ваш токен', this.user.token );
-      }
-      else console.log('No');*/
-/*      console.log(data);
-      this.router.navigate(['/registration']);*/
-
     })
   }
-
-
 
   changeType() {
     if (this.type == 'text') {
@@ -77,4 +57,26 @@ export class LoginComponent implements OnInit {
     else
       this.type = 'text';
   }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 }
+
+
+/*
+public enter(): void {
+  this.enterService.login(this.myLoginForm.value).subscribe({
+    next: (data) => {
+    },
+    error: (error) => {
+      this.errorMessage = error.error;
+    },
+    complete: () => {
+      if (this.myLoginForm.get('checkbox')?.value != false)
+        this.enterService.setLogin(this.myLoginForm.get('email')?.value)
+    }
+  })
+}*/
