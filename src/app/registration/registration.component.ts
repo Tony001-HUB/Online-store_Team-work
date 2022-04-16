@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router){
+    this.subscription = new Subscription();
   }
 
   ngOnInit(): void {
@@ -50,8 +51,6 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 }

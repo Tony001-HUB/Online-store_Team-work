@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   private subscription: Subscription;
 
   constructor(private formLoginBuilder: FormBuilder, private enterService: AuthService, private router: Router) {
+    this.subscription = new Subscription();
   }
 
   ngOnInit(): void {
@@ -59,9 +60,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 }
 
