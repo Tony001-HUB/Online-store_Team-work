@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
-import { fromEvent, Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
-import { EventEmitter } from '@angular/core';
-import { ICatalog } from '../models/catalog';
+import { AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
+import { debounceTime} from 'rxjs/operators';
 import { IToolbar } from '../models/toolbar';
 import { ContentService } from '../services/content.service';
+import { GoodsService } from '../services/goods.service';
 
 @Component({
   selector: 'app-header',
@@ -12,39 +11,35 @@ import { ContentService } from '../services/content.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('searchInput') searchInput: ElementRef;
-  @Output() sourceChange = new EventEmitter(); 
+  modelChanged: Subject<string> = new Subject<string>();
   sub: Subscription;
   accountMenu: IToolbar[] = [];
   isActive = false;
 
   constructor(
-    private contentService: ContentService
-    ) { }
+    private contentService: ContentService,
+    private goodsService: GoodsService
+  ) {}
 
   ngAfterViewInit(): void {
-    this.search()
   }
 
   ngOnInit(): void {
     this.accountMenu = this.contentService.accountMenu;
-   }
+    this.modelChanged.pipe(
+      debounceTime(1500)
+    ).subscribe({
+      next: (text) => {
+        console.log(text)
+      }
+    })
+  }
 
   ngOnDestroy(): void {
     this.sub && this.sub.unsubscribe();
   }
 
-  public search() {
-    this.sub = fromEvent(this.searchInput.nativeElement, 'keyup')
-      .pipe(
-        filter(Boolean),
-        debounceTime(1500),
-        distinctUntilChanged(),
-      ).subscribe({
-        next: () => {
-          console.log(this.searchInput.nativeElement.value);
-        }
-      });
+  public search(event) {
+    this.modelChanged.next(event.target.value)
   }
-
 }
