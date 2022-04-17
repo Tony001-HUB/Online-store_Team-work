@@ -43,10 +43,9 @@ export class LoginComponent implements OnInit, OnDestroy{
         this.errorMessage = error.error;
       },
       complete: () => {
-        if (this.myLoginForm.get('checkbox')?.value != false) {
+        if (this.myLoginForm.get('checkbox')?.value != false)
           this.enterService.setLogin(this.myLoginForm.get('email')?.value);
-          this.router.navigate(['/home'])
-        }
+        this.router.navigate(['/home'])
       }
     })
   }
@@ -63,19 +62,3 @@ export class LoginComponent implements OnInit, OnDestroy{
     this.subscription.unsubscribe();
   }
 }
-
-
-/*
-public enter(): void {
-  this.enterService.login(this.myLoginForm.value).subscribe({
-    next: (data) => {
-    },
-    error: (error) => {
-      this.errorMessage = error.error;
-    },
-    complete: () => {
-      if (this.myLoginForm.get('checkbox')?.value != false)
-        this.enterService.setLogin(this.myLoginForm.get('email')?.value)
-    }
-  })
-}*/
