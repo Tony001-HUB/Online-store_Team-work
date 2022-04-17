@@ -21,10 +21,7 @@ export class NewsComponent implements OnInit {
   public weatherData: any;
   public currentData: ICurrency;
   public newsCategories: INewsCategories[];
-  public sub1$: Subscription;
-  public sub2$: Subscription;
-  public sub3$: Subscription;
-  public sub4$: Subscription;
+  public sub: Subscription;
   public subscriptions: Subscription[] = [];
   public allNews: INews[];
 
@@ -36,10 +33,7 @@ export class NewsComponent implements OnInit {
     private route: ActivatedRoute
   )
   {
-    this.sub1$ = new Subscription();
-    this.sub2$ = new Subscription();
-    this.sub3$ = new Subscription();
-    this.sub4$ = new Subscription();
+    this.sub = new Subscription();
     this.route.paramMap.subscribe();
     this.newsCategories = [];
   }
@@ -52,7 +46,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+    this.sub.unsubscribe();
   }
 
   public getLocation() {
@@ -60,22 +54,20 @@ export class NewsComponent implements OnInit {
         navigator.geolocation.getCurrentPosition(data => {
         this.lat = data.coords.latitude;
         this.lon = data.coords.longitude;
-        this.sub1$ = this.weatherService.getWeatherData(this.lat, this.lon).subscribe(data => {
+        this.sub.add(this.weatherService.getWeatherData(this.lat, this.lon).subscribe(data => {
           this.weatherData = data;
-        });
-        this.subscriptions.push(this.sub1$);
+        }));
       })
     }
   }
 
   public getCurrencyData() {
-    this.sub2$ = this.currencyService.getCurrencyInfo().subscribe(data => {this.currentData = data});
-    this.subscriptions.push(this.sub2$);
+    this.sub.add(this.currencyService.getCurrencyInfo().subscribe(data => {this.currentData = data}));
   }
 
 
   public getAllCategoriesNews() {
-    this.sub3$ = this.newsCategoriesService.getAllCategoriesNews().pipe(
+    this.sub.add(this.newsCategoriesService.getAllCategoriesNews().pipe(
       map(data => this.newsCategoriesService.categories.map(item => {
         if (data.categoryId === item.categoryId) {}
         return {
@@ -83,14 +75,12 @@ export class NewsComponent implements OnInit {
           title: item.title,
           description: item.description,
           src: item.src,
-        }
+      }
       }))
-    ).subscribe(data => this.newsCategories = data);
-    this.subscriptions.push(this.sub3$);
+    ).subscribe(data => this.newsCategories = data));
   }
 
   public getNews(id: string) {
-    this.sub4$ = this.newsCategoriesService.getAllNews(id).subscribe((data) =>  this.allNews = data)
-    this.subscriptions.push(this.sub4$);
+    this.sub.add(this.newsCategoriesService.getAllNews(id).subscribe((data) =>  this.allNews = data));
   }
 }

@@ -29,12 +29,13 @@ export class GoodsComponent implements OnInit, OnDestroy {
     this.sub.add(this.goodsService.bSubject.subscribe(data => {
       if (data) {
         this.sub.add(this.goodsService.getGoods(this.goodsService.bSubject.getValue())
-        .subscribe({
-          next: (goods) => {
-            this.goods = goods;
-          }
-        }))
+          .subscribe({
+            next: (goods) => {
+              this.goods = goods;
+            }
+          }))
       }
     }));
   }
 }
+

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NewsCategoriesService} from "../../services/news-categories.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {INews} from "../../models/inews";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -12,20 +13,22 @@ import {INews} from "../../models/inews";
 export class AllNewsComponent implements OnInit {
 
   public news: INews [];
+  public sub: Subscription;
 
   constructor(private newsService: NewsCategoriesService, private route: ActivatedRoute) {
     this.news = [];
+    this.sub = new Subscription();
   }
 
   ngOnInit(): void {
-    this.route.paramMap
+   this.sub = this.route.paramMap
       .subscribe((params: ParamMap) => {
         this.getAllNews(params.get('id'))
       })
   }
 
-  ngDestroy() {
-
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   public getAllNews(id) {
