@@ -8,6 +8,7 @@ import { GoodsComponent } from './goods/goods.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'home/catalog', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'home', component: MainLayoutComponent, children: [

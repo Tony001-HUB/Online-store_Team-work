@@ -1,5 +1,10 @@
 .goods {
     margin: 80px 0 80px 0;
+    h2 {
+        font-weight: 700;
+        font-size: 36px;
+        color: #070C11;
+    }
     &__wrapper {
         margin-top: 40px;
         display: grid;
