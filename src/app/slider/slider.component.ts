@@ -1,8 +1,6 @@
-import * as $ from 'jquery';
 import { Component, OnInit } from '@angular/core';
 import { ISlider } from '../models/toolbar';
 import { ContentService } from '../services/content.service';
-
 
 @Component({
   selector: 'app-slider',
@@ -22,14 +20,9 @@ export class SliderComponent implements OnInit {
     dots: true
   };
 
-  removeSlide() {
-    this.slides.length = this.slides.length - 1;
-  }
-
   constructor(private contentService: ContentService) { }
 
   ngOnInit(): void {
     this.slides = this.contentService.slides;
   }
-
 }

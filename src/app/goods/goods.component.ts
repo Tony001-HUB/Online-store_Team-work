@@ -1,5 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, Subject, Subscription } from 'rxjs';
 import { IGoods } from '../models/goods';
 import { GoodsService } from '../services/goods.service';
 
@@ -9,7 +9,7 @@ import { GoodsService } from '../services/goods.service';
   styleUrls: ['./goods.component.scss']
 })
 export class GoodsComponent implements OnInit, OnDestroy {
-  @Input() type: string;
+  modelChanged: Subject<string> = new Subject<string>();
   sub: Subscription;
   goods: IGoods[] = [];
 
@@ -19,6 +19,17 @@ export class GoodsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getGoods()
+    this.modelChanged.pipe(
+      debounceTime(1500)
+    ).subscribe({
+      next: (text) => {
+        if (text !== '') {
+          this.goods = this.goods.filter(elem => elem.name.toLowerCase().includes(text.toLowerCase()))
+        } else {
+          this.getGoods()
+        }
+      }
+    })
   }
 
   ngOnDestroy(): void {
@@ -39,4 +50,7 @@ export class GoodsComponent implements OnInit, OnDestroy {
     
   }
 
+  public anyf(event) {
+    this.modelChanged.next(event);
+  }
 }

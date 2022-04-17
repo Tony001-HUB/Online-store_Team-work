@@ -1,0 +1,80 @@
+<mat-accordion multi>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+                         class="filtration">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Фильтрация и сортировка товаров
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <mat-action-row>
+            <div class="filtration__price">
+                <div class="filtration__title">Цена</div>
+                <div class="filtration__price-from">
+                    <label for="begprice">от</label>
+                    <input name="begprice" id="begprice" type="number" class="filtration__price-from-input">
+                </div>
+                <div class="filtration__price-end">
+                    <label for="endprice">до</label>
+                    <input name="endprice" id="endprice" type="number" class="filtration__price-end-input">
+                </div>
+            </div>
+
+            <div class="filtration__novelty">
+                <div class="filtration__title">Новинки</div>
+                <input type="checkbox" name="novelty" id="novelty" class="decorated-checkbox">
+                <label for="novelty">Да</label>
+            </div>
+            <div class="filtration__bestseller">
+                <div class="filtration__title">Хит продаж</div>
+                <input type="checkbox" name="bestseller" id="bestseller" class="decorated-checkbox">
+                <label for="bestseller">Да</label>
+            </div>
+            <div class="filtration__aquadef">
+                <div class="filtration__title">Аквазащита</div>
+                <input type="checkbox" name="aquadef" id="aquadef" class="decorated-checkbox">
+                <label for="aquadef">Да</label>
+            </div>
+        </mat-action-row>
+
+        <mat-action-row>
+            <div class="sorting__price">
+                <div class="sorting__title">Цена</div>
+                <button class="sorting__price-increase" title="по убыванию">
+                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                </button>
+                <button class="sorting__price-decrease" title="по возрастанию">
+                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                </button>
+            </div>
+            <div class="sorting__rating">
+                <div class="sorting__title">Рейтинг</div>
+                <button class="sorting__rating-increase" title="по убыванию">
+                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                </button>
+                <button class="sorting__rating-decrease" title="по возрастанию">
+                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                </button>
+            </div>
+            <div class="sorting__discount">
+                <div class="sorting__title">Скидка</div>
+                <button class="sorting__discount-increase" title="по убыванию">
+                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                </button>
+                <button class="sorting__discount-decrease" title="по возрастанию">
+                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                </button>
+            </div>
+            <div class="sorting__search">
+                <div class="sorting__title">Поиск товаров</div>
+                <input 
+                    type="search" 
+                    placeholder="Введите название товара..." 
+                    class="sorting__search-searching"
+                    (input)="search($event)"
+                >
+            </div>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
