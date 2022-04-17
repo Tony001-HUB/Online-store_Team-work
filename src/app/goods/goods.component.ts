@@ -36,7 +36,5 @@ export class GoodsComponent implements OnInit, OnDestroy {
         }))
       }
     }));
-    
   }
-
 }

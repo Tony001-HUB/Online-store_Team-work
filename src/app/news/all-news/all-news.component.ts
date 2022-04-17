@@ -24,6 +24,10 @@ export class AllNewsComponent implements OnInit {
       })
   }
 
+  ngDestroy() {
+
+  }
+
   public getAllNews(id) {
     this.newsService.getAllNews(id).subscribe(news => this.news = news)
   }

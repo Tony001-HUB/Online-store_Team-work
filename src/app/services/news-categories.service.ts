@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {INews} from "../models/inews";
 
 @Injectable({
   providedIn: 'root'
@@ -65,8 +66,8 @@ export class NewsCategoriesService {
     return this.http.get<any>('https://xnews.azurewebsites.net/Categories/list')
   }
 
-  getAllNews(id): Observable<any> {
-    return this.http.get<any>(`https://xnews.azurewebsites.net/Categories/${id}/posts`)
+  getAllNews(id): Observable<INews[]> {
+    return this.http.get<INews[]>(`https://xnews.azurewebsites.net/Categories/${id}/posts`)
   }
 
 }
