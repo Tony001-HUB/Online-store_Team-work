@@ -8,9 +8,9 @@ import { ContentService } from '../services/content.service';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  slides: ISlider[] = [];
 
-  slideConfig = { 
+  slides: ISlider[] = [];
+  slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,

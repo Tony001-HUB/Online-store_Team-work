@@ -1,95 +1,93 @@
 <header class="header">
     <div class="container">
-        <div class="header__info">
-            <div class="header__logo">
-                <a href="#">
-                    <img src="../../assets/icons/logo.svg" alt="the logotype of the company">
-                </a>
-            </div>
-
-            <div class="header__contacts">
-                <a href="tel:88126605054">+7 (812) 660-50-54</a>
-                <a href="tel:89581119503">+7 (958) 111-95-03</a>
-                <div class="header__contacts-schedule">Пн-вс: с 10:00 до 21:00</div>
-            </div>
-
-            <div class="header__panel">
-                <div class="header__panel-search">
-                    <input type="search" placeholder="Поиск"
-                           #searchInput
-                    >
-                </div>
-                <div class="header__panel-visibility">
-                    <img src="../../assets/icons/eye.svg" alt="the icon of the visibility">
-                </div>
-                <div class="header__panel-favorites">
-                    <img src="../../assets/icons/heart.svg" alt="the icon of the favorites">
-                </div>
-                <div class="header__panel-graph">
-                    <img src="../../assets/icons/graph.svg" alt="the icon of the graph">                        
-                </div>
-                <div class="header__panel-cart">
-                    <img src="../../assets/icons/cart.svg" alt="the icon of the cart">                      
-                </div>
-            </div>
-
-            <div class="header__account">
-                <svg (click)="isActive = !isActive" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 14C22.0605 14.0037 20.1639 14.5713 18.5413 15.6337C16.9186 16.6962 15.6399 18.2075 14.861 19.9838C14.082 21.76 13.8364 23.7244 14.1541 25.6378C14.4717 27.5511 15.3389 29.3308 16.65 30.76V30.76C17.5865 31.775 18.723 32.5851 19.988 33.1392C21.253 33.6933 22.619 33.9793 24 33.9793C25.3811 33.9793 26.7471 33.6933 28.0121 33.1392C29.2771 32.5851 30.4136 31.775 31.35 30.76V30.76C32.6612 29.3308 33.5284 27.5511 33.846 25.6378C34.1637 23.7244 33.9181 21.76 33.1391 19.9838C32.3602 18.2075 31.0815 16.6962 29.4588 15.6337C27.8362 14.5713 25.9396 14.0037 24 14V14ZM24 32C21.9285 31.9969 19.939 31.1903 18.45 29.75C18.9021 28.6495 19.6711 27.7083 20.6593 27.0459C21.6475 26.3835 22.8104 26.0298 24 26.0298C25.1897 26.0298 26.3526 26.3835 27.3408 27.0459C28.329 27.7083 29.098 28.6495 29.55 29.75C28.0611 31.1903 26.0716 31.9969 24 32ZM22 22C22 21.6044 22.1173 21.2178 22.3371 20.8889C22.5569 20.56 22.8692 20.3036 23.2347 20.1522C23.6001 20.0009 24.0023 19.9613 24.3902 20.0384C24.7782 20.1156 25.1346 20.3061 25.4143 20.5858C25.694 20.8655 25.8844 21.2219 25.9616 21.6098C26.0388 21.9978 25.9992 22.3999 25.8478 22.7654C25.6964 23.1308 25.4401 23.4432 25.1112 23.6629C24.7823 23.8827 24.3956 24 24 24C23.4696 24 22.9609 23.7893 22.5858 23.4142C22.2108 23.0391 22 22.5304 22 22ZM30.91 28C30.0166 26.4718 28.6415 25.283 27 24.62C27.5092 24.0427 27.841 23.3307 27.9555 22.5694C28.0701 21.8082 27.9625 21.0301 27.6458 20.3285C27.3291 19.6269 26.8166 19.0316 26.17 18.614C25.5233 18.1964 24.7698 17.9742 24 17.9742C23.2303 17.9742 22.4768 18.1964 21.8301 18.614C21.1835 19.0316 20.671 19.6269 20.3543 20.3285C20.0376 21.0301 19.93 21.8082 20.0446 22.5694C20.1591 23.3307 20.4909 24.0427 21 24.62C19.3586 25.283 17.9835 26.4718 17.09 28C16.378 26.7871 16.0018 25.4065 16 24C16 21.8783 16.8429 19.8434 18.3432 18.3431C19.8435 16.8429 21.8783 16 24 16C26.1218 16 28.1566 16.8429 29.6569 18.3431C31.1572 19.8434 32 21.8783 32 24C31.9983 25.4065 31.6221 26.7871 30.91 28V28Z" fill="#2A5275"/>
-                </svg>
-            </div>
+      <div class="header__info">
+        <div class="header__logo">
+          <a href="#">
+            <img src="../../assets/icons/logo.svg" alt="the logotype of the company">
+          </a>
         </div>
-
-        <div class="header__account-menu" *ngIf="isActive">
-            <ul class="header__account-menu-items">
-                <li class="header__account-menu-item" *ngFor="let item of accountMenu">
-                    <a href="#">{{item.name}}</a>
-                </li>
-            </ul>
+  
+        <div class="header__contacts">
+          <a href="tel:88126605054">+7 (812) 660-50-54</a>
+          <a href="tel:89581119503">+7 (958) 111-95-03</a>
+          <div class="header__contacts-schedule">Пн-вс: с 10:00 до 21:00</div>
         </div>
+  
+        <div class="header__panel">
+          <div class="header__panel-search">
+            <input type="search" placeholder="Поиск">
+          </div>
+          <div class="header__panel-visibility">
+            <img src="../../assets/icons/eye.svg" alt="the icon of the visibility">
+          </div>
+          <div class="header__panel-favorites">
+            <img src="../../assets/icons/heart.svg" alt="the icon of the favorites">
+          </div>
+          <div class="header__panel-graph">
+            <img src="../../assets/icons/graph.svg" alt="the icon of the graph">
+          </div>
+          <div class="header__panel-cart">
+            <img src="../../assets/icons/cart.svg" alt="the icon of the cart">
+          </div>
+        </div>
+  
+        <div class="header__account">
+          <svg (click)="isActive = !isActive" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 14C22.0605 14.0037 20.1639 14.5713 18.5413 15.6337C16.9186 16.6962 15.6399 18.2075 14.861 19.9838C14.082 21.76 13.8364 23.7244 14.1541 25.6378C14.4717 27.5511 15.3389 29.3308 16.65 30.76V30.76C17.5865 31.775 18.723 32.5851 19.988 33.1392C21.253 33.6933 22.619 33.9793 24 33.9793C25.3811 33.9793 26.7471 33.6933 28.0121 33.1392C29.2771 32.5851 30.4136 31.775 31.35 30.76V30.76C32.6612 29.3308 33.5284 27.5511 33.846 25.6378C34.1637 23.7244 33.9181 21.76 33.1391 19.9838C32.3602 18.2075 31.0815 16.6962 29.4588 15.6337C27.8362 14.5713 25.9396 14.0037 24 14V14ZM24 32C21.9285 31.9969 19.939 31.1903 18.45 29.75C18.9021 28.6495 19.6711 27.7083 20.6593 27.0459C21.6475 26.3835 22.8104 26.0298 24 26.0298C25.1897 26.0298 26.3526 26.3835 27.3408 27.0459C28.329 27.7083 29.098 28.6495 29.55 29.75C28.0611 31.1903 26.0716 31.9969 24 32ZM22 22C22 21.6044 22.1173 21.2178 22.3371 20.8889C22.5569 20.56 22.8692 20.3036 23.2347 20.1522C23.6001 20.0009 24.0023 19.9613 24.3902 20.0384C24.7782 20.1156 25.1346 20.3061 25.4143 20.5858C25.694 20.8655 25.8844 21.2219 25.9616 21.6098C26.0388 21.9978 25.9992 22.3999 25.8478 22.7654C25.6964 23.1308 25.4401 23.4432 25.1112 23.6629C24.7823 23.8827 24.3956 24 24 24C23.4696 24 22.9609 23.7893 22.5858 23.4142C22.2108 23.0391 22 22.5304 22 22ZM30.91 28C30.0166 26.4718 28.6415 25.283 27 24.62C27.5092 24.0427 27.841 23.3307 27.9555 22.5694C28.0701 21.8082 27.9625 21.0301 27.6458 20.3285C27.3291 19.6269 26.8166 19.0316 26.17 18.614C25.5233 18.1964 24.7698 17.9742 24 17.9742C23.2303 17.9742 22.4768 18.1964 21.8301 18.614C21.1835 19.0316 20.671 19.6269 20.3543 20.3285C20.0376 21.0301 19.93 21.8082 20.0446 22.5694C20.1591 23.3307 20.4909 24.0427 21 24.62C19.3586 25.283 17.9835 26.4718 17.09 28C16.378 26.7871 16.0018 25.4065 16 24C16 21.8783 16.8429 19.8434 18.3432 18.3431C19.8435 16.8429 21.8783 16 24 16C26.1218 16 28.1566 16.8429 29.6569 18.3431C31.1572 19.8434 32 21.8783 32 24C31.9983 25.4065 31.6221 26.7871 30.91 28V28Z" fill="#2A5275"/>
+          </svg>
+        </div>
+      </div>
+  
+      <div class="header__account-menu" *ngIf="isActive">
+        <ul class="header__account-menu-items">
+          <li class="header__account-menu-item" *ngFor="let item of accountMenu">
+            <a href="#">{{item.name}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-
+  
     <div class="header__nav">
-        <div class="header__nav-wrapper">
-            <div class="header__nav-menu">
-                <button class="header__nav-hamburger">
-                    <img src="../../assets/icons/hamburger.svg" alt="button of the context menu">
-                </button>
-                <button class="header__nav-btn" routerLink="/home/catalog">Каталог товаров</button>
-            </div>
-
-
-            <div class="header__nav-catalog">
-                <app-catalog></app-catalog>
-            </div>
-            
-
-            <nav class="header__menu">
-                <ul class="header__menu-items">
-                    <li class="header__menu-item">
-                        <a href="#">О компании</a>
-                    </li>
-                    <li class="header__menu-item">
-                        <a href="#">Акции</a>
-                    </li>
-                    <li class="header__menu-item">
-                        <a href="#">Рассрочка 0|0|18</a>
-                    </li>
-                    <li class="header__menu-item">
-                        <a href="#">Сервис и гарантия</a>
-                    </li>
-                    <li class="header__menu-item">
-                        <a routerLink="/home/news">Новости</a>
-                    </li>
-                    <li class="header__menu-item">
-                        <a href="#">Контакты</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="header__nav-slider">
-                <app-slider></app-slider>
-            </div>
+      <div class="header__nav-wrapper">
+        <div class="header__nav-menu">
+          <button class="header__nav-hamburger">
+            <img src="../../assets/icons/hamburger.svg" alt="button of the context menu">
+          </button>
+          <button class="header__nav-btn" routerLink="/home/catalog">Каталог товаров</button>
         </div>
+  
+  
+        <div class="header__nav-catalog">
+          <app-catalog></app-catalog>
+        </div>
+  
+  
+        <nav class="header__menu">
+          <ul class="header__menu-items">
+            <li class="header__menu-item">
+              <a href="#">О компании</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#">Акции</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#">Рассрочка 0|0|18</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#">Сервис и гарантия</a>
+            </li>
+            <li class="header__menu-item">
+              <a routerLink="/home/news">Новости</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+  
+        <div class="header__nav-slider">
+          <app-slider></app-slider>
+        </div>
+      </div>
     </div>
 </header>
