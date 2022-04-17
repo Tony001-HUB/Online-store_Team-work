@@ -1,7 +1,7 @@
 <section class="goods">
     <div class="container">
         <h2>Каталог</h2>
-        <app-filtration (searchText)="anyf($event)"></app-filtration>
+        <app-filtration (searchText)="searching($event)"></app-filtration>
         <div class="goods__wrapper">
             <div class="goods__item" *ngFor="let good of goods">
                 <div class="goods__item-additional">

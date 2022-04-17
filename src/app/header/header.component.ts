@@ -10,7 +10,6 @@ import { ContentService } from '../services/content.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  modelChanged: Subject<string> = new Subject<string>();
   sub: Subscription;
   accountMenu: IToolbar[] = [];
   isActive = false;
@@ -26,20 +25,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.accountMenu = this.contentService.accountMenu;
-    this.modelChanged.pipe(
-      debounceTime(1500)
-    ).subscribe({
-      next: (text) => {
-        console.log(text)
-      }
-    })
   }
 
   ngOnDestroy(): void {
     this.sub && this.sub.unsubscribe();
-  }
-
-  public search(event) {
-    this.modelChanged.next(event.target.value)
   }
 }

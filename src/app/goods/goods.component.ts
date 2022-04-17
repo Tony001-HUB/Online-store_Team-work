@@ -50,7 +50,7 @@ export class GoodsComponent implements OnInit, OnDestroy {
     
   }
 
-  public anyf(event) {
+  public searching(event) {
     this.modelChanged.next(event);
   }
 }
