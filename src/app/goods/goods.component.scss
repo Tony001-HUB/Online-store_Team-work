@@ -169,3 +169,15 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 728px;
+    }
+}
+

@@ -1,53 +1,54 @@
 <footer class="footer">
   <div class="container">
-   <div class="footer-items">
-      <div class="footer-colum">
-        <div class="footer-logo">
+   <div class="footer__items">
+      <div class="footer__colum">
+        <div class="footer__logo">
           <img src="./assets/img/logo.png" alt="">
         </div>
-        <p><a class="footer-telephone" href="tel:+7(958)111-95-03">+7(958)111-95-03</a></p>
-        <p><a class="footer-telephone" href="tel:+7(812)660-50-54">+7(812)660-50-54</a></p>
-        <p class="footer-work-time">Пн-вс: с 10:00 до 21:00</p>
+        <p><a class="footer__telephone" href="tel:+7(958)111-95-03">+7(958)111-95-03</a></p>
+        <p><a class="footer__telephone" href="tel:+7(812)660-50-54">+7(812)660-50-54</a></p>
+        <p class="footer__work-time">Пн-вс: с 10:00 до 21:00</p>
         <p>Проспект Стачек 67к.5</p>
         <p>Лиговский проспект 205</p>
         <p>Гражданский проспект, 116к.5</p>
       </div>
-     <div class="footer-colum">
-        <h3 class="footer-title">Для клиента</h3>
-        <p><a class="footer-link" href="">Как купить</a></p>
-        <p><a class="footer-link" href="">Доставка и оплата</a></p>
-        <p><a class="footer-link" href="">Кредит</a></p>
-        <p><a class="footer-link" href="">Политика конфиденциальности</a></p>
-        <p><a class="footer-link" href="">Вопросы и ответы (F.A.Q.)</a></p>
-        <p><a class="footer-link" href="">Сервис и гарантия</a></p>
+     <div class="footer__colum">
+        <h3 class="footer__title">Для клиента</h3>
+        <ul *ngFor="let item of forClientMenu" class="footer-list">
+          <li class="footer__list-item">
+            <a class="footer__link" href="">{{item.name}}</a>
+          </li>
+        </ul>
      </div>
-     <div class="footer-colum">
-       <h3 class="footer-title">О магазине</h3>
-       <p><a class="footer-link" href="">Отзывы</a></p>
-       <p><a class="footer-link" href="">Наши преимущества</a></p>
-       <p><a class="footer-link" href="">История компании</a></p>
-       <p><a class="footer-link" href="">Сотрудничество</a></p>
-       <p><a class="footer-link" href="">Партнёрская программа</a></p>
-       <p><a class="footer-link" href="">Вакансии</a></p>
+     <div class="footer__colum">
+       <h3 class="footer__title">О магазине</h3>
+       <ul *ngFor="let item of aboutMenu" class="footer__list">
+         <li class="footer__list-item">
+           <a class="footer__link" href="">{{item.name}}</a>
+         </li>
+       </ul>
      </div>
-     <div class="footer-colum">
-       <h3 class="footer-title">Сотрудничество</h3>
-       <p><a class="footer-link" href="">Оптом</a></p>
-       <p><a class="footer-link" href="">Дропшиппинг</a></p>
+     <div class="footer__colum">
+       <h3 class="footer__title">Сотрудничество</h3>
+       <ul *ngFor="let item of cooperationMenu">
+         <li class="footer__list-item">
+           <a class="footer__link" href="">{{item.name}}</a>
+         </li>
+       </ul>
      </div>
    </div>
     <hr>
-    <div class="footer-inner">
-      <div class="footer-inner-rights footer-inner-column">
+    <div class="footer__inner">
+      <div class="footer__inner-rights footer__inner-column">
         <span>SmartТехника © 2021 Все права защищены</span>
       </div>
-      <div class="footer-inner-icons footer-inner-column">
-        <a class="footer-inner-ico" href=""><img src="./assets/icons/tweeter-icon.svg" alt="tweeter"></a>
-        <a class="footer-inner-ico" href=""><img src="./assets/icons/facebook-icon.svg" alt="facebook"></a>
-        <a class="footer-inner-ico" href=""><img src="./assets/icons/vk-icon.svg" alt="vk"></a>
-        <a class="footer-inner-ico" href=""><img src="./assets/icons/instagram-icon.svg" alt="instagram"></a>
+      <div class="footer__inner-icons footer__inner-column">
+        <a class="footer__inner-ico" href=""><img src="./assets/icons/tweeter-icon.svg" alt="tweeter"></a>
+        <a class="footer__inner-ico" href=""><img src="./assets/icons/facebook-icon.svg" alt="facebook"></a>
+        <a class="footer__inner-ico" href=""><img src="./assets/icons/vk-icon.svg" alt="vk"></a>
+        <a class="footer__inner-ico" href=""><img src="./assets/icons/instagram-icon.svg" alt="instagram"></a>
       </div>
-      <div class="footer-inner-develop footer-inner-column">
+      <div class="footer__inner-develop footer__inner-column">
         <span>Разработка: Angular team</span>
       </div>
     </div>

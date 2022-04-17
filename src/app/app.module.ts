@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { GoodsComponent } from './goods/goods.component';
 import { FormsModule } from '@angular/forms';
+import { AllNewsComponent } from './news/all-news/all-news.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
@@ -23,6 +24,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     RegistrationComponent,
     FooterComponent,
     NewsComponent,
+    AllNewsComponent,
     HeaderComponent,
     SliderComponent,
     GoodsComponent,
