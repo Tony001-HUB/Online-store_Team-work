@@ -70,6 +70,10 @@ export class NewsCategoriesService {
     return this.http.get<INews[]>(`https://xnews.azurewebsites.net/Categories/${id}/posts`)
   }
 
+  getNews(id): Observable<INews> {
+    return this.http.get<INews>(`https://xnews.azurewebsites.net/Posts/${id}`)
+  }
+
 }
 
 
