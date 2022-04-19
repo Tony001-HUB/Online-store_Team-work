@@ -1,0 +1,12 @@
+<div class="container">
+  <button mat-icon-button color="primary" *ngFor="let item of ratingArr; index as index"
+          (click)="onClick(index)">
+    <mat-icon class="icon-color">
+      {{returnStar(index)}}
+    </mat-icon>
+  </button>
+</div>
+
+
+
+

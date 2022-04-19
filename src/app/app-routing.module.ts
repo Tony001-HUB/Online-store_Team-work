@@ -6,6 +6,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import { GoodsComponent } from './goods/goods.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import {NewsDescriptionComponent} from "./news/news-description/news-description.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home/catalog', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path: 'catalog', component: GoodsComponent},
     {path: 'news', component: NewsComponent},
     {path: 'news/:id', component: AllNewsComponent},
+    {path: 'modalInfo', component: NewsDescriptionComponent}
   ]}
 ];
 

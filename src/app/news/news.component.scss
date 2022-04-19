@@ -5,7 +5,22 @@
 }
 
 .news {
-  margin-top: 100px;
+  margin-top: 30px;
+
+  .header-title__nav {
+    margin-bottom: 30px;
+
+    &-img {
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+
+    .active {
+      color: #838688;
+    }
+  }
+
+
 
   &__block-header {
     display: grid;
@@ -20,6 +35,7 @@
     font-size: 36px;
     line-height: 130%;
   }
+
 
   &__block-main {
     display: grid;
@@ -41,7 +57,7 @@
     border: 1px solid green;
     border-radius: 5px;
     color: darkgreen;
-    padding: 5px;
+    padding: 5px !important;
     text-align: center;
   }
 

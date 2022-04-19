@@ -19,10 +19,16 @@
   }
 
   &__telephone {
+    display: block;
     font-size: 20px;
     color: #070C11;
     font-weight: 700;
     line-height: 100%;
+    margin: 10px 0;
+  }
+
+  &__adress {
+    margin-bottom: 15px;
   }
 
   &__work-time {
@@ -34,7 +40,7 @@
     font-weight: 600;
     font-size: 20px;
     color: #838688;
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
   }
 
   &__list-item {

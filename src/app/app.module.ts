@@ -19,6 +19,14 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FiltrationComponent } from './goods/filtration/filtration.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewsDescriptionComponent } from './news/news-description/news-description.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import { StarRatingComponent } from './news/news-description/star-rating/star-rating.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -33,7 +41,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GoodsComponent,
     CatalogComponent,
     MainLayoutComponent,
-    FiltrationComponent
+    FiltrationComponent,
+    NewsDescriptionComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     SlickCarouselModule,
     MatExpansionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
