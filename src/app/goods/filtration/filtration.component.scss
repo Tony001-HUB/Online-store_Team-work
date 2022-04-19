@@ -2,6 +2,13 @@
     justify-content: flex-start;
 }
 
+.mat-accordion>.mat-expansion-panel-spacing:last-child {
+    margin-bottom: 40px;
+}
+.mat-expansion-panel {
+    margin-bottom: 40px;
+}
+
 .filtration {
     &__title {
         font-weight: 700;

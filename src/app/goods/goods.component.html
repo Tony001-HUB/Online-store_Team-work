@@ -2,7 +2,9 @@
     <div class="container">
         <h2>Каталог</h2>
         <app-filtration (searchText)="searching($event)"></app-filtration>
-        <div class="goods__wrapper">
+        <app-spinner *ngIf="isLoading"></app-spinner>
+        <div class="goods__wrapper">       
+            <small *ngIf="goods.length === 0">Товары не найдены</small>     
             <div class="goods__item" *ngFor="let good of goods">
                 <div class="goods__item-additional">
                     <div class="goods__item-novelty" *ngIf="good.novelty">Новинка</div>
@@ -59,3 +61,4 @@
         </div>
     </div>
 </section>
+

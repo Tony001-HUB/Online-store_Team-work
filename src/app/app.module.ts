@@ -19,9 +19,11 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FiltrationComponent } from './goods/filtration/filtration.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     LoginComponent,
     RegistrationComponent,
@@ -33,8 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GoodsComponent,
     CatalogComponent,
     MainLayoutComponent,
-    FiltrationComponent
-  ],
+    FiltrationComponent,
+    SpinnerComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     SlickCarouselModule,
     MatExpansionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
