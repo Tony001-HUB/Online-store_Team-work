@@ -3,8 +3,8 @@ import {NewsCategoriesService} from "../../services/news-categories.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {INews} from "../../models/inews";
 import {Subscription} from "rxjs";
-import {MatDialog} from "@angular/material/dialog";
 import {NewsDescriptionComponent} from "../news-description/news-description.component";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -44,15 +44,13 @@ export class AllNewsComponent implements OnInit {
   }
 
 
-  public openDialog() {
-    this.news.map(item => {
-      this.dialogRef.open(NewsDescriptionComponent, {
-        data: {
-          postId: item.postId,
-          title: item.title,
-          content: item.content
-        }
-      })
+  public openDialog(news: INews) {
+    this.dialogRef.open(NewsDescriptionComponent, {
+      data: {
+        postId: news.postId,
+        title: news.title,
+        content: news.content
+      }
     })
   }
 }

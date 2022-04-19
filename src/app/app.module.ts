@@ -20,13 +20,15 @@ import { FiltrationComponent } from './goods/filtration/filtration.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewsDescriptionComponent } from './news/news-description/news-description.component';
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { StarRatingComponent } from './news/news-description/star-rating/star-rating.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MainLayoutComponent,
     FiltrationComponent,
     NewsDescriptionComponent,
-    StarRatingComponent
-  ],
+    StarRatingComponent,
+    SpinnerComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,7 +62,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

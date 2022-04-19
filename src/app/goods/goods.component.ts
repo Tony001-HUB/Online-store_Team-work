@@ -10,8 +10,9 @@ import { GoodsService } from '../services/goods.service';
 })
 export class GoodsComponent implements OnInit, OnDestroy {
   modelChanged: Subject<string> = new Subject<string>();
-  sub: Subscription;
   goods: IGoods[] = [];
+  sub: Subscription;
+  isLoading: Boolean = false;
 
   constructor(private goodsService: GoodsService) {
     this.sub = new Subscription();
@@ -25,6 +26,7 @@ export class GoodsComponent implements OnInit, OnDestroy {
       next: (text) => {
         if (text !== '') {
           this.goods = this.goods.filter(elem => elem.name.toLowerCase().includes(text.toLowerCase()))
+          this.isLoading = false;
         } else {
           this.getGoods()
         }
@@ -39,10 +41,12 @@ export class GoodsComponent implements OnInit, OnDestroy {
   public getGoods() {
     this.sub.add(this.goodsService.bSubject.subscribe(data => {
       if (data) {
+        this.isLoading = true;
         this.sub.add(this.goodsService.getGoods(this.goodsService.bSubject.getValue())
           .subscribe({
             next: (goods) => {
               this.goods = goods;
+              this.isLoading = false;
             }
           }))
       }
@@ -51,5 +55,6 @@ export class GoodsComponent implements OnInit, OnDestroy {
 
   public searching(event) {
     this.modelChanged.next(event);
+    this.isLoading = true;
   }
 }
