@@ -5,18 +5,21 @@
     <p class="news__description-content">{{newsInfo.content}}</p>
     <div class="news__description-form">
       <p class="news__description-form-title"><b>Оцените новость и оставьте комментарий</b></p>
-      <app-star-rating></app-star-rating>
-      <form class="example-form">
+
+      <form [formGroup]="formData" class="example-form" (ngSubmit)="onSubmit()">
+        <button class="rating" mat-icon-button color="primary" *ngFor="let item of ratingArr; index as index" (click)="onClick(index)">
+          <mat-icon class="icon-color">{{returnStar(index)}}</mat-icon>
+        </button>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Ваше имя</mat-label>
-          <input matInput placeholder="Введите имя">
+          <input formControlName="userId" matInput placeholder="Введите имя">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Комментарий</mat-label>
-          <textarea matInput placeholder="Введите текст"></textarea>
+          <textarea formControlName="content" matInput placeholder="Введите текст"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="basic">Оставить отзыв</button>
+        <button mat-raised-button color="basic" [disabled]="formData.invalid">Оставить отзыв</button>
       </form>
     </div>
   </div>

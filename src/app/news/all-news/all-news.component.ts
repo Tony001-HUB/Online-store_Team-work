@@ -43,7 +43,6 @@ export class AllNewsComponent implements OnInit {
     this.newsService.getAllNews(id).subscribe(news => this.news = news)
   }
 
-
   public openDialog(news: INews) {
     this.dialogRef.open(NewsDescriptionComponent, {
       data: {

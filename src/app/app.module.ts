@@ -23,7 +23,6 @@ import { NewsDescriptionComponent } from './news/news-description/news-descripti
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import { StarRatingComponent } from './news/news-description/star-rating/star-rating.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -45,7 +44,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MainLayoutComponent,
     FiltrationComponent,
     NewsDescriptionComponent,
-    StarRatingComponent,
     SpinnerComponent
    ],
   imports: [
