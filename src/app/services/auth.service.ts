@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {IUser} from "../models/user";
 import {map, Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {tap} from "rxjs/operators";
 import jwt_decode from "jwt-decode";
+import {IPasswords} from "../models/passwords";
 
 interface Token {
   accessToken: string,
@@ -58,5 +59,18 @@ export class AuthService {
 
   public setLogin(login: string) {
     localStorage.setItem('user-login', login);
+  }
+
+  public changePassword(userPasswords: IPasswords): Observable<any> {
+    // @ts-ignore
+    let userID:string = jwt_decode(localStorage.getItem('jwt-token')).userId;
+    let reqHeader = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`,
+    })
+    return this.http.post( `${environment.apiUrl}/Users/${userID}/change-password`, {
+      currentPassword: userPasswords.currentPassword,
+      newPassword: userPasswords.newPassword,
+    }, {headers: reqHeader})
   }
 }

@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { CatalogComponent } from './catalog/catalog.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     SliderComponent,
     GoodsComponent,
     CatalogComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
