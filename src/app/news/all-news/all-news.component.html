@@ -1,0 +1,16 @@
+<div class="container">
+  <a class="title__nav-link" routerLink="/home/catalog">Главная</a>
+  <img class="title__nav-img" src="./assets/icons/arrow.svg" alt="arrow">
+  <a class="title__nav-link active" routerLink="/home/news">Новости</a>
+  <img class="title__nav-img" src="./assets/icons/arrow.svg" alt="arrow">
+  <a class="title__nav-link active" routerLink="/home/news">Выбранный раздел</a>
+  <div class="all-news">
+      <div *ngFor="let item of news" class="all-news__row">
+          <h3 class="all-news__title">{{item.title}}</h3>
+          <hr>
+          <p class="all-news__content">{{item.content}}</p>
+          <a class="all-news__link" (click)="openDialog(item)">Читать новость полностью</a>
+          <img class="title__nav-img" src="./assets/icons/arrow.svg" alt="arrow">
+      </div>
+  </div>
+</div>

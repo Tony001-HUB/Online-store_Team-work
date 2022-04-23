@@ -1,5 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, Subject, Subscription } from 'rxjs';
 import { IGoods } from '../models/goods';
 import { GoodsService } from '../services/goods.service';
 
@@ -9,9 +9,10 @@ import { GoodsService } from '../services/goods.service';
   styleUrls: ['./goods.component.scss']
 })
 export class GoodsComponent implements OnInit, OnDestroy {
-  @Input() type: string;
-  sub: Subscription;
+  modelChanged: Subject<string> = new Subject<string>();
   goods: IGoods[] = [];
+  sub: Subscription;
+  isLoading: Boolean = false;
 
   constructor(private goodsService: GoodsService) {
     this.sub = new Subscription();
@@ -19,6 +20,18 @@ export class GoodsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getGoods()
+    this.modelChanged.pipe(
+      debounceTime(1500)
+    ).subscribe({
+      next: (text) => {
+        if (text !== '') {
+          this.goods = this.goods.filter(elem => elem.name.toLowerCase().includes(text.toLowerCase()))
+          this.isLoading = false;
+        } else {
+          this.getGoods()
+        }
+      }
+    })
   }
 
   ngOnDestroy(): void {
@@ -28,15 +41,20 @@ export class GoodsComponent implements OnInit, OnDestroy {
   public getGoods() {
     this.sub.add(this.goodsService.bSubject.subscribe(data => {
       if (data) {
+        this.isLoading = true;
         this.sub.add(this.goodsService.getGoods(this.goodsService.bSubject.getValue())
           .subscribe({
             next: (goods) => {
               this.goods = goods;
+              this.isLoading = false;
             }
           }))
       }
     }));
-
   }
 
+  public searching(event) {
+    this.modelChanged.next(event);
+    this.isLoading = true;
+  }
 }

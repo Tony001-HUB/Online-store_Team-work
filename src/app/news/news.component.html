@@ -1,99 +1,36 @@
-<div class="news-block">
+
+<div class="news">
   <div class="container">
-      <div class="news-block-header">
-          <div class="news-block-header-title">
-            <h3 class="news-header">Новости</h3>
+    <p class="header-title__nav">
+      <a class="header-title__nav-link" routerLink="/home/catalog">Главная</a>
+      <img class="header-title__nav-img" src="../assets/icons/arrow.svg" alt="arrow">
+      <a class="header-title__nav-link active" routerLink="/home/news">Новости</a>
+    </p>
+      <div class="news__block-header">
+          <div class="news__block-header-title">
+            <h4 class="news__header">Новости</h4>
           </div>
-          <div class="news-block-header-weather">
-            <h3 class="weather-title" >Погода в {{weatherData?.name}} <span>{{(weatherData?.main.temp - 32) * 5/9 | number: '1.0-0' }}  &#176;</span>
-            </h3>
+          <div class="news__block-header-weather">
+            <img class="img__weather" src="./assets/img/weather-icon.png" alt="weather-icon"><span class="weather__title">{{weatherData?.name}}  {{(weatherData?.main?.temp - 32) * 5/9 | number: '1.0-0' }}  &#176;</span>
           </div>
-        <div  class="news-block-header-exchange">
-          <h3 class="exchange-title">1 USD = {{currentData?.rates.RUB.rate | number: '2.1-2'}} RUB</h3>
+        <div  class="news__block-header-exchange">
+          <h4 class="exchange__title">1 USD = {{currentData?.rates?.RUB?.rate | number: '2.1-2'}} RUB</h4>
       </div>
     </div>
-    <div class="news-block-main">
-        <div class="news-block-main-chapter">
-          <div class="main-chapter-img">
-            <img src="./assets/img/news-img1.png" alt="">
+    <div class="news__block-main ">
+      <div *ngFor="let item of newsCategories" class="news__block-main-chapter ">
+          <div class="main__chapter-img">
+            <img src="{{item.src}}" alt="">
           </div>
-          <div class="main-chapter-info">
-            <h3 class="main-chapter-title">Открытие новых магазинов</h3>
-            <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-            <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
+          <div class="main__chapter-info">
+            <h3 class="main__chapter-title">{{item.title}}</h3>
+            <hr>
+            <p class="main__chapter-text">{{item.description}}</p>
+            <a [routerLink]="item.categoryId" class="main__chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
           </div>
         </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img2.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие нового магазина</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img3.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие нового магазина</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img4.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие нового магазина</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img1.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие нового магазина</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img2.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие нового магазина</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img3.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие нового магазина</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-      <div class="news-block-main-chapter">
-        <div class="main-chapter-img">
-          <img src="./assets/img/news-img4.png" alt="">
-        </div>
-        <div class="main-chapter-info">
-          <h3 class="main-chapter-title">Открытие новых магазинов</h3>
-          <p class="main-chapter-text">Разнообразный и богатый опыт говорит нам, что консультация с широким активом требует от нас анализа анализа существующих паттернов поведения</p>
-          <a href="" class="main-chapter-link">Перейти в раздел</a><img src="./assets/icons/news-arrow.svg" alt="">
-        </div>
-      </div>
-
     </div>
   </div>
 </div>
+
+

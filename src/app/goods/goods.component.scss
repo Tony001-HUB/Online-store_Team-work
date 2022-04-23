@@ -1,7 +1,12 @@
 .goods {
     margin: 80px 0 80px 0;
+    h2 {
+        font-weight: 700;
+        font-size: 36px;
+        color: #070C11;
+    }
     &__wrapper {
-        margin-top: 40px;
+        // margin-top: 40px;
         display: grid;
         grid-template-columns: repeat(auto-fill, 325px);
         row-gap: 20px;
@@ -166,6 +171,18 @@
                 background: #2A5275;
             }
         }
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 728px;
     }
 }
 

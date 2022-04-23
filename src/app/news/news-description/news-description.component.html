@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="news__description">
+    <h2 class="news__description-title">{{newsInfo.title}}</h2>
+    <hr>
+    <p class="news__description-content">{{newsInfo.content}}</p>
+    <div class="news__description-form">
+      <p class="news__description-form-title"><b>Оцените новость и оставьте комментарий</b></p>
+      <app-star-rating></app-star-rating>
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ваше имя</mat-label>
+          <input matInput placeholder="Введите имя">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Комментарий</mat-label>
+          <textarea matInput placeholder="Введите текст"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="basic">Оставить отзыв</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!--<div class="news__description">-->
+<!--  <div class="news__description-nav">-->
+<!--    <a class="news__description-nav-link" routerLink="/home/catalog">Главная</a>-->
+<!--    <img class="news__description-nav-img" src="./assets/icons/arrow.svg" alt="arrow">-->
+<!--    <a class="news__description-nav-link active" routerLink="/home/news">Новости</a>-->
+<!--    <img class="news__description-nav-img" src="./assets/icons/arrow.svg" alt="arrow">-->
+<!--    <a class="news__description-nav-link active" routerLink="/home/news">Выбранный раздел</a>-->
+<!--    <img class="news__description-nav-img" src="./assets/icons/arrow.svg" alt="arrow">-->
+<!--    <a class="news__description-nav-link active" routerLink="/home/news">Название новости</a>-->
+<!--  </div>-->
+<!--  <div class="news__description-content">-->
+
+<!--  </div>-->
+<!--</div>-->
