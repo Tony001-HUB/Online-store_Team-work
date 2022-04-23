@@ -49,29 +49,36 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   public changePassword(): void {
-    // @ts-ignore
     this.subscription = this.authService.changePassword(this.changePasswordForm.value).subscribe({
       next: (data) => {
       },
       error: (error) => {
         this.errorMessage = error.error;
-       setTimeout( ()=> this.errorMessage = '' ,2000)
+        this.clearMessage();
       },
       complete: () => {
         this.errorMessage = 'Пароль успешно заменен!';
-        setTimeout( ()=> this.errorMessage = '' ,3000)
+        this.clearMessage();
       }
     })
   }
 
   public changeType(clas): void {
-    let divInput = document.querySelector(`.${clas}`);
-    // @ts-ignore
-    if (divInput.type == 'text') { // @ts-ignore
+    let divInput: any | null = document.querySelector(`.${clas}`);
+    if (divInput.type == 'text') {
       divInput.type = 'password';
-    } else { // @ts-ignore
+    } else {
       divInput.type = 'text';
     }
+  }
+
+  public clearMessage():void {
+    let divInput: any = document.querySelectorAll(".form-change-password__input");
+    divInput.forEach(element => {
+      element.addEventListener('click', ()=> {
+        this.errorMessage = '';
+      })
+    })
   }
 
   ngOnDestroy() {

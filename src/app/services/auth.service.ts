@@ -52,6 +52,7 @@ export class AuthService {
       localStorage.setItem('jwt-token-end', endTokenTimeRent.toString());
       localStorage.setItem('jwt-token', response.accessToken);
       localStorage.setItem('refresh-token', response.refreshToken);
+      localStorage.setItem('userId', this.decoded['userId']);
     } else {
       localStorage.clear();
     }
@@ -62,8 +63,7 @@ export class AuthService {
   }
 
   public changePassword(userPasswords: IPasswords): Observable<any> {
-    // @ts-ignore
-    let userID:string = jwt_decode(localStorage.getItem('jwt-token')).userId;
+    let userID:string | null= localStorage.getItem('userId');
     let reqHeader = new HttpHeaders({
       "Content-Type": "application/json",
       "Authorization": `Bearer ${localStorage.getItem("jwt-token")}`,

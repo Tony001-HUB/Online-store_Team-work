@@ -35,6 +35,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       },
       error: (error) => {
         this.errorMessage = error.error;
+        this.clearMessage();
       },
       complete: () => {
         this.errorMessage = '';
@@ -48,6 +49,15 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     }
     else
       this.type = 'text';
+  }
+
+  public clearMessage():void {
+    let divInput: any = document.querySelectorAll(".form-registration__input");
+    divInput.forEach(element => {
+      element.addEventListener('click', ()=> {
+        this.errorMessage = '';
+      })
+    })
   }
 
   ngOnDestroy() {
