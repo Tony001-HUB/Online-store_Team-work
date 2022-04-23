@@ -1,0 +1,58 @@
+.container{
+  margin: 40px auto;
+
+  .title__nav-img {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  .active {
+    color: #838688;
+  }
+
+  .about {
+
+    &__title {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 130%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    &__subtitle {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 120%;
+    }
+
+    &__text {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    &__link{
+      color: #4878A6;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    &__inner-text {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 120%;
+      margin-top: 30px;
+      margin-bottom: 80px;
+    }
+
+    &__inner-mail {
+      color: #4878A6;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 120%;
+    }
+
+  }
+}
