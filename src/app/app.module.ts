@@ -16,6 +16,7 @@ import { AllNewsComponent } from './news/all-news/all-news.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FiltrationComponent } from './goods/filtration/filtration.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,11 +44,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
     GoodsComponent,
     CatalogComponent,
     MainLayoutComponent,
+    ChangePasswordComponent,
     FiltrationComponent,
     NewsDescriptionComponent,
     StarRatingComponent,
     SpinnerComponent
    ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
