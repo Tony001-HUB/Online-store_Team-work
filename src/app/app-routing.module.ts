@@ -8,6 +8,11 @@ import { GoodsComponent } from './goods/goods.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import {ChangePasswordComponent} from "./change-password/change-password.component";
 import {NewsDescriptionComponent} from "./news/news-description/news-description.component";
+import {AboutComponent} from "./about/about.component";
+import {WarrantyComponent} from "./warranty/warranty.component";
+import {ContactsComponent} from "./contacts/contacts.component";
+import {StockComponent} from "./stock/stock.component";
+import {DropComponent} from "./drop/drop.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home/catalog', pathMatch: 'full'},
@@ -19,7 +24,14 @@ const routes: Routes = [
     {path: 'modalInfo', component: NewsDescriptionComponent},
     {path: 'catalog', component: GoodsComponent},
     {path: 'news', component: NewsComponent},
-  ]},
+    {path: 'news/:id', component: AllNewsComponent},
+    {path: 'modalInfo', component: NewsDescriptionComponent},
+    {path: 'about', component: AboutComponent},
+    {path: 'warranty', component: WarrantyComponent},
+    {path: 'contacts', component: ContactsComponent},
+    {path: 'stock', component: StockComponent},
+    {path: 'drop', component: DropComponent}
+  ]}
 ];
 
 @NgModule({
