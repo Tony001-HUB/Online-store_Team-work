@@ -1,0 +1,52 @@
+<div class="container">
+  <a class="title__nav-link" routerLink="/home/catalog">Главная</a>
+  <img class="title__nav-img" src="./assets/icons/arrow.svg" alt="arrow">
+  <a class="title__nav-link active" routerLink="/home/contacts">Контакты</a>
+  <div class="contacts">
+    <h2 class="contacts__title">Контакты</h2>
+    <div class="contacts__items">
+      <div class="contacts__info">
+        <div class="contacts__info-item">
+          <p class="contacts__info-title">СПб, Ул. Дыбенко д.23 к.1</p>
+          <a class="contacts__info-phone" href="tel:+7 (812) 509-23-43">+7 (812) 509-23-43</a>
+        </div>
+        <div class="contacts__info-item">
+          <p class="contacts__info-title">СПб, Пр. Энгельса д.113 к.2</p>
+          <a class="contacts__info-phone" href="tel:+7 (812) 509-23-43">+7 (812) 509-23-43</a>
+        </div>
+        <div class="contacts__info-item">
+          <p class="contacts__info-title">СПб, Ул. Ленсовета д.81</p>
+          <a class="contacts__info-phone" href="tel:+7 (812) 602-74-02">+7 (812) 602-74-02</a>
+        </div>
+        <div class="contacts__info-item">
+          <p class="contacts__info-title">СПб, ул. Тарасова д.10</p>
+          <a class="contacts__info-phone" href="tel:+7 (967) 555-01-06">+7 (967) 555-01-06</a>
+        </div>
+        <hr>
+        <a class="contacts__info-email" href="mailto:">smart-tekhnika@gmail.com</a>
+        <p class="contacts__info-time"><b>Пн-вс с 10:00 до 21:00</b></p>
+      </div>
+      <div class="contacts__map">
+        <img src="../../assets/img/map.png" alt="map" class="contacts__map-img">
+      </div>
+    </div>
+    <div class="contacts__form">
+      <h2 class="contacts__title">Связаться с нами</h2>
+      <form>
+        <div class="contacts__form_items">
+          <div class="form__items-info">
+            <label for="username">Имя</label> <br>
+            <input class="form-input" placeholder="Введите имя" id="username">
+            <label for="phone">Телефон</label> <br>
+            <input class="form-input" placeholder="Введите номер телефон" id="phone">
+            <button class="form-btn">Отправить</button>
+          </div>
+          <div class="form__items-message">
+            <label for="message">Сообщение</label> <br>
+            <textarea class="form-textarea" placeholder="Введите имя" id="message"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

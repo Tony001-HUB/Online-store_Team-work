@@ -11,7 +11,8 @@
             <h4 class="news__header">Новости</h4>
           </div>
           <div class="news__block-header-weather">
-            <img class="img__weather" src="./assets/img/weather-icon.png" alt="weather-icon"><span class="weather__title">{{weatherData?.name}}  {{(weatherData?.main?.temp - 32) * 5/9 | number: '1.0-0' }}  &#176;</span>
+            <span class="weather__title">{{weatherData?.name}}  {{(weatherData?.main?.temp - 32) * 5/9 | number: '1.0-0' }}  &#176; </span>
+            <img class="img__weather" src="./assets/img/weather-icon.png" alt="weather-icon">
           </div>
         <div  class="news__block-header-exchange">
           <h4 class="exchange__title">1 USD = {{currentData?.rates?.RUB?.rate | number: '2.1-2'}} RUB</h4>
