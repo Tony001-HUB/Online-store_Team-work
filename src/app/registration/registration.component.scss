@@ -154,20 +154,11 @@
   .container-registration {
     width: 1100px;
   }
-
-  .form-login__divInput {
-    width: 582px;
-  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-
   .container-registration {
     width: 922px;
-  }
-
-  .form-login__divInput {
-    width: 582px;
   }
 }
 
@@ -175,19 +166,11 @@
   .container-registration {
     width: 698px;
   }
-
-  .form-login__divInput {
-    width: 482px;
-  }
 }
 
 @media (max-width: 767px) {
   .container-registration {
     width: 450px;
-  }
-
-  .form-login__divInput {
-    width: 350px;
   }
 }
 
@@ -195,18 +178,10 @@
   .container-registration {
     width: 310px;
   }
-
-  .form-login__divInput {
-    width: 282px;
-  }
 }
 
 @media (max-width: 320px) {
   .container-registration {
     width: 270px;
-  }
-
-  .form-login__divInput {
-    width: 252px;
   }
 }

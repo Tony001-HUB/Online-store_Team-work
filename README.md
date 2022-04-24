@@ -9,9 +9,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Back-end 
 link: https://xnews.azurewebsites.net/swagger/index.html
-email: douglas.adams@gmail.com
-password: p-DNbUMLwkwbqK_!35@7Nuv&tfN62]4
-
 
 ## Collaborators:
 

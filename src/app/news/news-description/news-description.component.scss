@@ -1,0 +1,40 @@
+.news__description {
+  margin: 20px 0;
+  max-width: 1200px;
+  min-height: 300px;
+
+  &-title {
+    font-size: 30px;
+  }
+
+  &-content {
+    font-size: 20px;
+  }
+
+  &-form-title {
+    margin-top: 50px;
+  }
+
+  .example-form {
+    padding-top: 30px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 150px;
+  }
+
+}
+
+.icon-color {
+  color: rgb(251, 177, 60);
+}
+
+.rating {
+  margin-bottom: 30px;
+}
+

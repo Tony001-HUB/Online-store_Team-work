@@ -1,6 +1,5 @@
 .form-login__divInput {
   outline: none;
-/*  border: none;*//*  border: none;*/
 }
 
 .page-login {
@@ -219,19 +218,11 @@
   .container-login {
     width: 922px;
   }
-
-  .form-login__divInput {
-    width: 582px;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .container-login {
     width: 698px;
-  }
-
-  .form-login__divInput {
-    width: 482px;
   }
 }
 
@@ -239,28 +230,16 @@
   .container-login {
     width: 450px;
   }
-
-  .form-login__divInput {
-    width: 350px;
-  }
 }
 
 @media (max-width: 480px) {
   .container-login {
     width: 310px;
   }
-
-  .form-login__divInput {
-    width: 282px;
-  }
 }
 
 @media (max-width: 320px) {
   .container-login {
     width: 270px;
-  }
-
-  .form-login__divInput {
-    width: 252px;
   }
 }

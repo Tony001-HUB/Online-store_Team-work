@@ -1,0 +1,124 @@
+.container {
+  margin: 40px auto;
+
+  .title__nav-img {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  .active {
+    color: #838688;
+  }
+
+  .contacts {
+
+    &__title {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 130%;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+
+    &__items{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px;
+    }
+
+    &__info {
+      grid-column: span 1;
+      background-color: #EDF2F6;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    &__map {
+      grid-column: span 2;
+    }
+
+    &__info-item {
+
+      padding: 20px;
+
+      &:hover {
+        background-color: #DAE4ED;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+
+    &__info-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    &__info-phone {
+      font-weight: 600;
+      font-size: 24px;
+      color: #4878A6;
+    }
+
+    &__info-email {
+      padding: 10px;
+      font-weight: 600;
+      font-size: 24px;
+      color: #2A5275;
+    }
+
+    &__info-time {
+      padding: 10px;
+    }
+
+    &__form_items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 20px;
+    }
+
+    &-info {
+      grid-column: span 1;
+    }
+
+    .form__items-message {
+      grid-column: span 2;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #FFF;
+      border: 1px solid #EAEAF0;
+      border-radius: 5px;
+      height: 48px;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .form-btn {
+      width: 310px;
+      height: 48px;
+      background: #4878A6;
+      border-radius: 5px;
+      color: #fff;
+
+      &:hover,
+      &:active,
+      &:focus{
+        background-color: #243C53;
+        transition: 0.5s;
+      }
+    }
+
+    .form-textarea {
+      width: 100%;
+      min-height: 145px;
+      border: 1px solid #EAEAF0;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+}
