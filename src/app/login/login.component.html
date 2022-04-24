@@ -9,10 +9,10 @@
         </svg>
       </div>
     </div>
-    <form [formGroup]="myLoginForm"  class="form-login">
-      <div class="form-login__divLabelInput">
+    <form appFormOnClick (clickInput)="clearMessage()" [formGroup]="myLoginForm" class="form-login">
+      <div  class="form-login__divLabelInput">
         <label class="form-login__label">Эл.почта или телефон</label>
-        <input formControlName="email" class="form-login__input inputEmail">
+        <input  formControlName="email" class="form-login__input inputEmail">
         <div *ngIf="myLoginForm.controls['email'].invalid && myLoginForm.controls['email'].touched" class="validation">Некоректный email</div>
       </div>
       <div class="form-login__divLabelInput">

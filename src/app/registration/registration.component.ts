@@ -35,10 +35,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       },
       error: (error) => {
         this.errorMessage = error.error;
-        this.clearMessage();
       },
       complete: () => {
-        this.errorMessage = '';
         this.router.navigate(['/login']);
       }
     })
@@ -52,12 +50,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   public clearMessage():void {
-    let divInput: any = document.querySelectorAll(".form-registration__input");
-    divInput.forEach(element => {
-      element.addEventListener('click', ()=> {
-        this.errorMessage = '';
-      })
-    })
+    this.errorMessage = '';
   }
 
   ngOnDestroy() {

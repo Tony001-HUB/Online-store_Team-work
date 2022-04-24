@@ -30,6 +30,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { FormOnClickDirective } from './directives/form-on-click.directive';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FiltrationComponent,
     NewsDescriptionComponent,
     StarRatingComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    FormOnClickDirective
    ],
 
   imports: [

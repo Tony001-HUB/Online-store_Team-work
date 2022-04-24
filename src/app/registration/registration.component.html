@@ -9,7 +9,7 @@
         </svg>
       </div>
     </div>
-    <form class="form-registration"  [formGroup]="myForm">
+    <form appFormOnClick (clickInput)="clearMessage()" class="form-registration"  [formGroup]="myForm">
       <div class="form-registration__divLabelInput">
         <label class="form-registration__label">Имя</label>
         <input formControlName="userName" class="form-registration__input inputName" value="">
