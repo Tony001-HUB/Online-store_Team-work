@@ -10,6 +10,18 @@
 }
 
 .filtration {
+    &__form {
+        display: flex;
+        align-items: center;
+        &-btn {
+            width: 150px;
+            height: 40px;
+            background: #4878A6;
+            border-radius: 4px;
+            margin-left: 10px;
+            color: #FFFFFF;
+        }
+    }
     &__title {
         font-weight: 700;
         font-size: 16px;

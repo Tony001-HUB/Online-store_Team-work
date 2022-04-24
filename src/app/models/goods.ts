@@ -6,4 +6,13 @@ export interface IGoods {
     name: string;
     novelty: boolean;
     price: number;
+    rating: number;
+}
+
+export interface IFilteredGoods {
+    beginPrice: number;
+    endPrice: number;
+    novelty: boolean;
+    bestseller: boolean;
+    aquadef: boolean;
 }

@@ -9,33 +9,46 @@
         </mat-expansion-panel-header>
         
         <mat-action-row>
-            <div class="filtration__price">
-                <div class="filtration__title">Цена</div>
-                <div class="filtration__price-from">
-                    <label for="begprice">от</label>
-                    <input name="begprice" id="begprice" type="number" class="filtration__price-from-input">
+            <form action="#" class="filtration__form" [formGroup]="filtrationForm">
+                <div class="filtration__price">
+                    <div class="filtration__title">Цена</div>
+                    <div class="filtration__price-from">
+                        <label for="begprice">от</label>
+                        <input 
+                            name="begprice" 
+                            id="begprice" type="number" 
+                            class="filtration__price-from-input"
+                            formControlName="beginPrice"
+                        >
+                    </div>
+                    <div class="filtration__price-end">
+                        <label for="endprice">до</label>
+                        <input 
+                            name="endprice" 
+                            id="endprice" 
+                            type="number" 
+                            class="filtration__price-end-input" 
+                            formControlName="endPrice">
+                    </div>
                 </div>
-                <div class="filtration__price-end">
-                    <label for="endprice">до</label>
-                    <input name="endprice" id="endprice" type="number" class="filtration__price-end-input">
+    
+                <div class="filtration__novelty">
+                    <div class="filtration__title">Новинки</div>
+                    <input type="checkbox" name="novelty" id="novelty" class="decorated-checkbox" formControlName="novelty" formControlName="endPrice">
+                    <label for="novelty">Да</label>
                 </div>
-            </div>
-
-            <div class="filtration__novelty">
-                <div class="filtration__title">Новинки</div>
-                <input type="checkbox" name="novelty" id="novelty" class="decorated-checkbox">
-                <label for="novelty">Да</label>
-            </div>
-            <div class="filtration__bestseller">
-                <div class="filtration__title">Хит продаж</div>
-                <input type="checkbox" name="bestseller" id="bestseller" class="decorated-checkbox">
-                <label for="bestseller">Да</label>
-            </div>
-            <div class="filtration__aquadef">
-                <div class="filtration__title">Аквазащита</div>
-                <input type="checkbox" name="aquadef" id="aquadef" class="decorated-checkbox">
-                <label for="aquadef">Да</label>
-            </div>
+                <div class="filtration__bestseller">
+                    <div class="filtration__title">Хит продаж</div>
+                    <input type="checkbox" name="bestseller" id="bestseller" class="decorated-checkbox" formControlName="bestseller" formControlName="endPrice">
+                    <label for="bestseller">Да</label>
+                </div>
+                <div class="filtration__aquadef">
+                    <div class="filtration__title">Аквазащита</div>
+                    <input type="checkbox" name="aquadef" id="aquadef" class="decorated-checkbox" formControlName="aquadef" formControlName="endPrice">
+                    <label for="aquadef">Да</label>
+                </div>
+                <button (click)="filterGoods()" class="filtration__form-btn">Применить</button>
+            </form>
         </mat-action-row>
 
         <mat-action-row>
