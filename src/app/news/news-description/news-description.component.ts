@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {INewsInfo} from "../../models/inews-info";
-import {map} from "rxjs";
 import {CommentsService} from "../../services/comments.service";
 
 
@@ -40,10 +39,9 @@ export class NewsDescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.formData = this.formBuilder.group({
-      "userId": ["", [Validators.required]],
+      "userId": localStorage.getItem('userId'),
       "content": ["", [Validators.required]],
       "postId": this.newsInfo.postId,
-      "rating": this.rating
     })
   }
 

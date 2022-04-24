@@ -10,10 +10,6 @@
         <button class="rating" mat-icon-button color="primary" *ngFor="let item of ratingArr; index as index" (click)="onClick(index)">
           <mat-icon class="icon-color">{{returnStar(index)}}</mat-icon>
         </button>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Ваше имя</mat-label>
-          <input formControlName="userId" matInput placeholder="Введите имя">
-        </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Комментарий</mat-label>
@@ -28,17 +24,3 @@
 
 
 
-<!--<div class="news__description">-->
-<!--  <div class="news__description-nav">-->
-<!--    <a class="news__description-nav-link" routerLink="/home/catalog">Главная</a>-->
-<!--    <img class="news__description-nav-img" src="./assets/icons/arrow.svg" alt="arrow">-->
-<!--    <a class="news__description-nav-link active" routerLink="/home/news">Новости</a>-->
-<!--    <img class="news__description-nav-img" src="./assets/icons/arrow.svg" alt="arrow">-->
-<!--    <a class="news__description-nav-link active" routerLink="/home/news">Выбранный раздел</a>-->
-<!--    <img class="news__description-nav-img" src="./assets/icons/arrow.svg" alt="arrow">-->
-<!--    <a class="news__description-nav-link active" routerLink="/home/news">Название новости</a>-->
-<!--  </div>-->
-<!--  <div class="news__description-content">-->
-
-<!--  </div>-->
-<!--</div>-->

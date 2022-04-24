@@ -4,6 +4,7 @@ import {User} from "../models/user";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy{
       },
       error: (error) => {
         this.errorMessage = error.error;
+        this.clearMessage();
       },
       complete: () => {
         if (this.myLoginForm.get('checkbox')?.value != false)
@@ -56,6 +58,15 @@ export class LoginComponent implements OnInit, OnDestroy{
     }
     else
       this.type = 'text';
+  }
+
+  public clearMessage():void {
+    let divInput: any = document.querySelectorAll(".form-login__input");
+    divInput.forEach(element => {
+      element.addEventListener('click', ()=> {
+        this.errorMessage = '';
+      })
+    })
   }
 
   ngOnDestroy() {

@@ -1,6 +1,7 @@
 export interface IComment {
   content: string;
   postId: string;
-  stars?: number;
+  rate?: number;
   userId: string;
+  userName?: string
 }
