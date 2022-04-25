@@ -54,11 +54,9 @@ export class ChangePasswordComponent implements OnInit {
       },
       error: (error) => {
         this.errorMessage = error.error;
-        this.clearMessage();
       },
       complete: () => {
         this.errorMessage = 'Пароль успешно заменен!';
-        this.clearMessage();
       }
     })
   }
@@ -73,12 +71,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   public clearMessage():void {
-    let divInput: any = document.querySelectorAll(".form-change-password__input");
-    divInput.forEach(element => {
-      element.addEventListener('click', ()=> {
-        this.errorMessage = '';
-      })
-    })
+    this.errorMessage = '';
   }
 
   ngOnDestroy() {

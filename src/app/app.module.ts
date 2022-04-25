@@ -29,6 +29,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { FormOnClickDirective } from './directives/form-on-click.directive';
 import { AboutComponent } from './about/about.component';
 import { WarrantyComponent } from './warranty/warranty.component';
 import { ContactsComponent } from './contacts/contacts.component';
@@ -51,6 +52,8 @@ import { DropComponent } from './drop/drop.component';
     ChangePasswordComponent,
     FiltrationComponent,
     NewsDescriptionComponent,
+    SpinnerComponent,
+    FormOnClickDirective,
     SpinnerComponent,
     AboutComponent,
     WarrantyComponent,
