@@ -72,9 +72,8 @@
         }
         &-rating {
             margin-top: 20px;
-            width: 194px;
+            max-width: 194px;
             display: flex;
-            justify-content: space-between;
         }
         &-stars {
             margin-right: 10px;
@@ -172,6 +171,14 @@
             }
         }
     }
+    label.star[_ngcontent-uuk-c84] {
+        padding: 3px !important;
+        font-size: 24px !important;
+    }
+}
+
+.ngx-input-start-rating__btn {
+    font-size: 23px;
 }
 
 @media (max-width: 1200px) {
@@ -185,4 +192,3 @@
         max-width: 728px;
     }
 }
-

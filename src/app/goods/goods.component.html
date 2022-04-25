@@ -1,7 +1,7 @@
 <section class="goods">
     <div class="container">
         <h2>Каталог</h2>
-        <app-filtration (searchText)="searching($event)"></app-filtration>
+        <app-filtration (searchText)="searching($event)" (filtrationData)="filterGoods($event)"></app-filtration>
         <app-spinner *ngIf="isLoading"></app-spinner>
         <div class="goods__wrapper">       
             <small *ngIf="goods.length === 0">Товары не найдены</small>     
@@ -16,7 +16,7 @@
                 <div class="goods__item-title">{{good.name}}</div>
                 <div class="goods__item-rating">
                     <div class="goods__item-stars">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg *ngFor="let star of getRating(good.rating)" h="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#FBB13C"/>
                         </svg>
                     </div>
@@ -61,4 +61,3 @@
         </div>
     </div>
 </section>
-

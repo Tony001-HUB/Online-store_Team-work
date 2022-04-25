@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { debounceTime, Subject, Subscription } from 'rxjs';
-import { IGoods } from '../models/goods';
+import { debounceTime, filter, from, of, Subject, Subscription, take } from 'rxjs';
+import { IFilteredGoods, IGoods } from '../models/goods';
 import { GoodsService } from '../services/goods.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class GoodsComponent implements OnInit, OnDestroy {
   sub: Subscription;
   isLoading: Boolean = false;
 
-  constructor(private goodsService: GoodsService) {
+  constructor(
+    private goodsService: GoodsService) {
     this.sub = new Subscription();
   }
 
@@ -32,6 +33,7 @@ export class GoodsComponent implements OnInit, OnDestroy {
         }
       }
     })
+
   }
 
   ngOnDestroy(): void {
@@ -56,5 +58,19 @@ export class GoodsComponent implements OnInit, OnDestroy {
   public searching(event) {
     this.modelChanged.next(event);
     this.isLoading = true;
+  }
+
+  public getRating(rating: number): number[] {
+    const ratingValue: number[] = [];
+
+    for (let i = 1; i <= rating; i++) {
+      ratingValue.push(Math.round(i));
+    }
+    return ratingValue;
+  }
+
+  public filterGoods(filteredData: IFilteredGoods) {
+    const res = this.goods.filter(elem => elem.price >= filteredData.beginPrice)
+    console.log(res)
   }
 }

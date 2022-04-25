@@ -7,7 +7,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FooterComponent } from './footer/footer.component';
 import { NewsComponent } from './news/news.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { GoodsComponent } from './goods/goods.component';
@@ -35,6 +35,7 @@ import { WarrantyComponent } from './warranty/warranty.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { StockComponent } from './stock/stock.component';
 import { DropComponent } from './drop/drop.component';
+import { AuthInterceptor } from './interceptor/authInterceptor';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,13 @@ import { DropComponent } from './drop/drop.component';
     MatSnackBarModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
