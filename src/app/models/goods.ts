@@ -16,3 +16,8 @@ export interface IFilteredGoods {
     bestseller: boolean;
     aquadef: boolean;
 }
+
+export interface ISortingData {
+    sort: string;
+    type: string;
+}

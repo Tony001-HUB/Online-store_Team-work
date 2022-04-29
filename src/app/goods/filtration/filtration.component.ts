@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { IFilteredGoods } from 'src/app/models/goods';
+import { IFilteredGoods, IGoods, ISortingData } from 'src/app/models/goods';
 
 @Component({
   selector: 'app-filtration',
@@ -10,6 +10,8 @@ import { IFilteredGoods } from 'src/app/models/goods';
 export class FiltrationComponent implements OnInit {
   @Output() searchText = new EventEmitter<string>();
   @Output() filtrationData = new EventEmitter<IFilteredGoods>();
+  @Output() sortingData: EventEmitter<ISortingData> = new EventEmitter<ISortingData>()
+  @Output() resetFilter: EventEmitter<IGoods> = new EventEmitter<IGoods>();
   filtrationForm: FormGroup;
   panelOpenState = false;
 
@@ -18,10 +20,10 @@ export class FiltrationComponent implements OnInit {
   ngOnInit(): void {
     this.filtrationForm = new FormGroup({
       beginPrice: new FormControl(0),
-      endPrice: new FormControl(9999999),
-      novelty: new FormControl(false),
-      bestseller: new FormControl(false),
-      aquadef: new FormControl(false)
+      endPrice: new FormControl(999999),
+      novelty: new FormControl(true),
+      bestseller: new FormControl(true),
+      aquadef: new FormControl(true)
     })
    }
 
@@ -37,8 +39,15 @@ export class FiltrationComponent implements OnInit {
       bestseller: this.filtrationForm.value.bestseller,
       aquadef: this.filtrationForm.value.aquadef
     }
-    console.log(filtrationFormData)
     this.filtrationData.emit(filtrationFormData);
+  }
+
+  public resetFiltration(event: any) {
+    this.resetFilter.emit();
+  }
+
+  public sortGoods(sortData: ISortingData) {
+    this.sortingData.emit(sortData)
   }
 
 }

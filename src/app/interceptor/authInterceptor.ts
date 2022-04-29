@@ -13,12 +13,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): any {
     const authInfo = request.clone({
         headers: new HttpHeaders({
           'Authorization': 'Bearer ' + localStorage.getItem('jwt-token')
       })
     })
-    return next.handle(authInfo)
+    if (request.url.includes('firebaseio')) {
+      
+    } else {
+      return next.handle(authInfo)
+    }
+    
   }
 }
+
+// : Observable<HttpEvent<unknown>> 
