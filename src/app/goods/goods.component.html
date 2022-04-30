@@ -1,7 +1,11 @@
 <section class="goods">
     <div class="container">
         <h2>Каталог</h2>
-        <app-filtration (searchText)="searching($event)" (filtrationData)="filterGoods($event)"></app-filtration>
+        <app-filtration 
+            (searchText)="searching($event)" 
+            (filtrationData)="filterGoods($event)" 
+            (resetFilter)="getGoods()"
+            (sortingData)="sortingGoods($event)"></app-filtration>
         <app-spinner *ngIf="isLoading"></app-spinner>
         <div class="goods__wrapper">       
             <small *ngIf="goods.length === 0">Товары не найдены</small>     

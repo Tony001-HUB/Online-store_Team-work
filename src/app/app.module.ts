@@ -80,13 +80,7 @@ import { AuthInterceptor } from './interceptor/authInterceptor';
     MatSnackBarModule,
     MatProgressSpinnerModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

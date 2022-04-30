@@ -34,60 +34,93 @@
     
                 <div class="filtration__novelty">
                     <div class="filtration__title">Новинки</div>
-                    <input type="checkbox" name="novelty" id="novelty" class="decorated-checkbox" formControlName="novelty" formControlName="endPrice">
+                    <input 
+                        type="checkbox" 
+                        name="novelty" id="novelty" 
+                        class="decorated-checkbox" 
+                        formControlName="novelty">
                     <label for="novelty">Да</label>
                 </div>
                 <div class="filtration__bestseller">
                     <div class="filtration__title">Хит продаж</div>
-                    <input type="checkbox" name="bestseller" id="bestseller" class="decorated-checkbox" formControlName="bestseller" formControlName="endPrice">
+                    <input 
+                        type="checkbox" 
+                        name="bestseller" id="bestseller" 
+                        class="decorated-checkbox" 
+                        formControlName="bestseller">
                     <label for="bestseller">Да</label>
                 </div>
                 <div class="filtration__aquadef">
                     <div class="filtration__title">Аквазащита</div>
-                    <input type="checkbox" name="aquadef" id="aquadef" class="decorated-checkbox" formControlName="aquadef" formControlName="endPrice">
+                    <input 
+                        type="checkbox" 
+                        name="aquadef" id="aquadef" 
+                        class="decorated-checkbox" 
+                        formControlName="aquadef">
                     <label for="aquadef">Да</label>
                 </div>
                 <button (click)="filterGoods()" class="filtration__form-btn">Применить</button>
+                <button (click)="resetFiltration($event)" class="filtration__form-clear">Сброc</button>
             </form>
         </mat-action-row>
 
         <mat-action-row>
-            <div class="sorting__price">
-                <div class="sorting__title">Цена</div>
-                <button class="sorting__price-increase" title="по убыванию">
-                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
-                </button>
-                <button class="sorting__price-decrease" title="по возрастанию">
-                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
-                </button>
-            </div>
-            <div class="sorting__rating">
-                <div class="sorting__title">Рейтинг</div>
-                <button class="sorting__rating-increase" title="по убыванию">
-                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
-                </button>
-                <button class="sorting__rating-decrease" title="по возрастанию">
-                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
-                </button>
-            </div>
-            <div class="sorting__discount">
-                <div class="sorting__title">Скидка</div>
-                <button class="sorting__discount-increase" title="по убыванию">
-                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
-                </button>
-                <button class="sorting__discount-decrease" title="по возрастанию">
-                    <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
-                </button>
-            </div>
-            <div class="sorting__search">
-                <div class="sorting__title">Поиск товаров</div>
-                <input 
-                    type="search" 
-                    placeholder="Введите название товара..." 
-                    class="sorting__search-searching"
-                    (input)="search($event)"
-                >
-            </div>
+            <form action="#" class="sorting__form">
+                <div class="sorting__price">
+                    <div class="sorting__title">Цена</div>
+                    <button 
+                        class="sorting__price-decrease" 
+                        title="по убыванию"  
+                        (click)="sortGoods({sort: 'up', type: 'price'})">
+                        <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                    </button>
+                    <button 
+                        class="sorting__price-increase" 
+                        title="по возрастанию" 
+                        (click)="sortGoods({sort: 'down', type: 'price'})">
+                        <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                    </button>
+                </div>
+                <div class="sorting__rating">
+                    <div class="sorting__title">Рейтинг</div>
+                    <button 
+                        class="sorting__rating-decrease" 
+                        title="по убыванию" 
+                        (click)="sortGoods({sort: 'up', type: 'rating'})">
+                        <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                    </button>
+                    <button 
+                        class="sorting__rating-increase" 
+                        title="по возрастанию"
+                        (click)="sortGoods({sort: 'down', type: 'rating'})">
+                        <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                    </button>
+                </div>
+                <div class="sorting__discount">
+                    <div class="sorting__title">Скидка</div>
+                    <button 
+                        class="sorting__discount-increase" 
+                        title="по убыванию"
+                        (click)="sortGoods({sort: 'up', type: 'discount'})">
+                        <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                    </button>
+                    <button 
+                        class="sorting__discount-decrease" 
+                        title="по возрастанию"
+                        (click)="sortGoods({sort: 'down', type: 'discount'})">
+                        <img src="../../../assets/icons/arrow.svg" alt="arrow for sorting">
+                    </button>
+                </div>
+                <div class="sorting__search">
+                    <div class="sorting__title">Поиск товаров</div>
+                    <input 
+                        type="search" 
+                        placeholder="Введите название товара..." 
+                        class="sorting__search-searching"
+                        (input)="search($event)"
+                    >
+                </div>
+            </form>
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>

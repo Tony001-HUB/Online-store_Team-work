@@ -21,6 +21,13 @@
             margin-left: 10px;
             color: #FFFFFF;
         }
+        &-clear {
+            height: 40px;
+            background: transparent;
+            border-radius: 4px;
+            margin-left: 20px;
+            color: #000;
+        }
     }
     &__title {
         font-weight: 700;
@@ -52,6 +59,10 @@
 }
 
 .sorting {
+    &__form {
+        display: flex;
+        align-items: center;
+    }
     &__price, &__rating, &__discount, &__search {
         margin-right: 25px; 
         display: flex;
@@ -126,4 +137,58 @@ label {
 .decorated-checkbox:checked+label::after {
     background-color: #4878A6;
     background-image: url('../../../assets/icons/catalog/check_mark.svg');
+}
+
+@media(max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    .filtration {
+        &__form {
+            display: flex;
+            align-items: center;
+            &-btn {
+                width: 150px;
+                height: 40px;
+                background: #4878A6;
+                border-radius: 4px;
+                margin-left: 10px;
+                color: #FFFFFF;
+            }
+            &-clear {
+                height: 40px;
+                background: transparent;
+                border-radius: 4px;
+                margin-left: 20px;
+                color: #000;
+            }
+        }
+        &__title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #070C11;
+            margin-right: 16px;
+        }
+        &__price, &__novelty, &__bestseller, &__aquadef {
+            margin-right: 15px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-from-input, &-end-input {
+                width: 117px;
+                height: 48px;
+                border: 1px solid #EAEAF0;
+                box-sizing: border-box;
+                border-radius: 4px;
+                padding: 13px 20px;
+                margin-right: 20px;
+                font-size: 16px;
+                color: #838688;
+                outline: 0;
+                &:focus {
+                    outline: 1px solid #838688;
+                }
+            }
+        }
+    }
 }

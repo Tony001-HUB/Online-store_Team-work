@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { debounceTime, filter, from, of, Subject, Subscription, take } from 'rxjs';
-import { IFilteredGoods, IGoods } from '../models/goods';
+import { debounceTime, Subject, Subscription } from 'rxjs';
+import { IFilteredGoods, IGoods, ISortingData } from '../models/goods';
 import { GoodsService } from '../services/goods.service';
 
 @Component({
@@ -40,7 +40,7 @@ export class GoodsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  public getGoods() {
+  public getGoods(): any {
     this.sub.add(this.goodsService.bSubject.subscribe(data => {
       if (data) {
         this.isLoading = true;
@@ -70,7 +70,33 @@ export class GoodsComponent implements OnInit, OnDestroy {
   }
 
   public filterGoods(filteredData: IFilteredGoods) {
-    const res = this.goods.filter(elem => elem.price >= filteredData.beginPrice)
-    console.log(res)
+    this.goods = this.goods.filter(elem => 
+      elem.price >= filteredData.beginPrice
+      && elem.price <= filteredData.endPrice
+      && elem.aquaSecurity === filteredData.aquadef
+      && elem.bestseller === filteredData.bestseller
+      && elem.novelty === filteredData.novelty
+    )
   }
-}
+  
+  public sortingGoods (sortingData: ISortingData): any {
+    if (sortingData.type === 'price' && sortingData.sort === 'up') {
+      this.goods = this.goods.sort((a, b) => {return a.price - b.price})
+    }
+    if (sortingData.type === 'price' && sortingData.sort === 'down') {
+      this.goods = this.goods.sort((a, b) => {return b.price - a.price})
+    }
+    if (sortingData.type === 'rating' && sortingData.sort === 'up') {
+      this.goods = this.goods.sort((a, b) => {return a.rating - b.rating})
+    }
+    if (sortingData.type === 'rating' && sortingData.sort === 'down') {
+      this.goods = this.goods.sort((a, b) => {return b.rating - a.rating})
+    }
+    if (sortingData.type === 'discount' && sortingData.sort === 'up') {
+      this.goods = this.goods.sort((a, b) => {return a.discount - b.discount})
+    }
+    if (sortingData.type === 'discount' && sortingData.sort === 'down') {
+      this.goods = this.goods.sort((a, b) => {return b.discount - a.discount})
+    }
+  }
+}  
